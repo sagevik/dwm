@@ -1,3 +1,20 @@
+Patched version of dwm
+======================
+This is a patched version of dwm, patched with the following
+patches from suckless.org website:
+- systray
+- cfacts_vanitygaps
+- movestack
+- pertag
+- namedscratchpads
+- alwayscenter
+- preserveonrestart
+- resizecorners
+- focusonnetactive
+- noborder
+- cursorwarp
+
+
 dwm - dynamic window manager
 ============================
 dwm is an extremely fast, small, and dynamic window manager for X.
