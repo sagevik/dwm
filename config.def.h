@@ -3,6 +3,7 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 16;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int gappih    = 4;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 4;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 4;       /* horiz outer gap between windows and screen edge */
@@ -37,11 +38,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       		tags mask     isfloating   monitor    scratch key */
-	{ "Gimp",     NULL,       NULL,       		0,            1,           -1,        0  },
-	{ "firefox",  NULL,       NULL,       		1 << 8,       0,           -1,        0  },
-	{ NULL,       NULL,       "scratchpad",     	0,            1,           -1,       's' },
-	{ NULL,       NULL,       "scratchpad2",    	0,            1,           -1,       'a' },
+	/* class       instance     title                 tags mask     isfloating  isterminal  noswallow  monitor  scratch key */
+	{ "Gimp",      NULL,        NULL,                 0,            1,          0,           0,        -1,        0  },
+	{ "Firefox",   NULL,        NULL,                 1 << 8,       0,          0,          -1,        -1,        0  },
+	{ "st",        NULL,        NULL,                 0,            0,          1,           0,        -1,        0  },
+	{ "Alacritty", NULL,        NULL,                 0,            0,          1,           0,        -1,        0  },
+	{ NULL,        NULL,        "ScratchA",     	  0,            1,          1,           0,        -1,       'a' },
+	{ NULL,        NULL,        "ScratchB",    	  0,            1,          1,           0,        -1,       's' },
+	{ NULL,        NULL,        "Event Tester",       0,            0,          0,           1,        -1,        0  }, /* xev */
 };
 
 /* layout(s) */
@@ -82,8 +86,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL}; 
-static const char *scratchpadcmd2[] = {"a", "st", "-t", "scratchpad2", NULL}; 
+static const char *scratchcmdA[] = {"a", "st", "-t", "ScratchA", NULL}; 
+static const char *scratchcmdB[] = {"s", "st", "-t", "ScratchB", NULL}; 
 
 
 #include "movestack.c"
@@ -91,8 +95,8 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_s,      togglescratch,  {.v = scratchpadcmd } },
-	{ MODKEY,                       XK_a,      togglescratch,  {.v = scratchpadcmd2 } },
+	{ MODKEY,                       XK_a,      togglescratch,  {.v = scratchcmdA } },
+	{ MODKEY,                       XK_s,      togglescratch,  {.v = scratchcmdB } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

@@ -13,6 +13,7 @@ patches from suckless.org website:
 - focusonnetactive
 - noborder
 - cursorwarp
+- swallow
 
 
 dwm - dynamic window manager
