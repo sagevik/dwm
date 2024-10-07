@@ -14,6 +14,7 @@ patches from suckless.org website:
 - noborder
 - cursorwarp
 - swallow
+- dynamicscratchpads
 
 
 dwm - dynamic window manager
