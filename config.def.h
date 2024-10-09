@@ -16,8 +16,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=15" };
-static const char dmenufont[]       = "monospace:size=15";
+static const char *fonts[]          = { "Hack:size=15" };
+static const char dmenufont[]       = "Hack:size=15";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -66,6 +66,13 @@ static const Layout layouts[] = {
 	{ "TTT",      bstack },
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
+	{ "[@]",      spiral },
+	{ "H[]",      deck },
+	{ "===",      bstackhoriz },
+	{ "HHH",      grid },
+	{ "###",      nrowgrid },
+	{ "---",      horizgrid },
+	{ ":::",      gaplessgrid },
 	{ NULL,       NULL },
 };
 
@@ -113,6 +120,25 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_j,      movestack,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      movestack,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,              {0} },
+//+	{ MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
+//+	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
+//+	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
+//+	{ MODKEY|Mod1Mask,              XK_u,      incrgaps,       {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_u,      incrgaps,       {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              XK_i,      incrigaps,      {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_i,      incrigaps,      {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              XK_o,      incrogaps,      {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_o,      incrogaps,      {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              XK_6,      incrihgaps,     {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_6,      incrihgaps,     {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              XK_7,      incrivgaps,     {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_7,      incrivgaps,     {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              XK_8,      incrohgaps,     {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_8,      incrohgaps,     {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              XK_9,      incrovgaps,     {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              XK_0,      togglegaps,     {0} },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
 	{ MODKEY|Mod1Mask,              XK_0,      togglegaps,        {0} },
 	{ MODKEY,                       XK_Tab,    view,              {0} },
 	{ MODKEY,                       XK_q,      killclient,        {0} },
@@ -123,6 +149,13 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_t,      setlayout,         {.v = &layouts[4]} }, // set layout 4 TTT bstack
 	{ MODKEY|ShiftMask,             XK_m,      setlayout,         {.v = &layouts[5]} }, // set layout 5 |M| centeredmaster
 	{ MODKEY|ControlMask,           XK_m,      setlayout,         {.v = &layouts[6]} }, // set layout 6 >M> centeredfloatingmaster
+	{ MODKEY|Mod1Mask,              XK_t,      setlayout,         {.v = &layouts[7]} }, // set layout 7 [@] spiral
+	{ MODKEY|ShiftMask|ControlMask, XK_t,      setlayout,         {.v = &layouts[8]} }, // set layout 8 H[] deck
+	{ MODKEY|Mod1Mask,              XK_m,      setlayout,         {.v = &layouts[9]} }, // set layout 9 === bstackhoriz
+	{ MODKEY,                       XK_g,      setlayout,         {.v = &layouts[10]} }, // set layout 10 HHH grid
+	{ MODKEY|ShiftMask,             XK_g,      setlayout,         {.v = &layouts[11]} }, // set layout 11 ### nrowgrid 
+	{ MODKEY|ControlMask,           XK_g,      setlayout,         {.v = &layouts[12]} }, // set layout 12 --- horizgrid 
+	{ MODKEY|Mod1Mask,              XK_g,      setlayout,         {.v = &layouts[13]} }, // set layout 13 ::: gaplessgrid 
 	{ MODKEY,                       XK_space,  setlayout,         {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating,    {0} },
 	{ MODKEY,                       XK_0,      view,              {.ui = ~0 } },
