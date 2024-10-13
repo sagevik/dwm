@@ -15,6 +15,7 @@ patches from suckless.org website:
 - cursorwarp
 - swallow
 - dynamicscratchpads
+- hide vacant tags
 
 
 dwm - dynamic window manager
