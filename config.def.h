@@ -43,6 +43,8 @@ static const Rule rules[] = {
 	{ "Firefox",   NULL,        NULL,                 1 << 8,       0,          0,          -1,        -1,        0  },
 	{ "st",        NULL,        NULL,                 0,            0,          1,           0,        -1,        0  },
 	{ "Alacritty", NULL,        NULL,                 0,            0,          1,           0,        -1,        0  },
+	{ "Qalculate", NULL,        NULL,                 0,            1,          0,           0,        -1,        0  },
+	{ NULL,        NULL,        "webcam",             0,            1,          1,           0,        -1,        0  },
 	{ NULL,        NULL,        "ScratchA",     	  0,            1,          1,           0,        -1,       'a' },
 	{ NULL,        NULL,        "ScratchB",    	  0,            1,          1,           0,        -1,       's' },
 	{ NULL,        NULL,        "Event Tester",       0,            0,          0,           1,        -1,        0  }, /* xev */
