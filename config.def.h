@@ -46,7 +46,10 @@ static const Rule rules[] = {
 	{ "Qalculate", NULL,        NULL,                 0,            1,          0,           0,        -1,        0  },
 	{ NULL,        NULL,        "webcam",             0,            1,          1,           0,        -1,        0  },
 	{ NULL,        NULL,        "ScratchA",     	  0,            1,          1,           0,        -1,       'a' },
-	{ NULL,        NULL,        "ScratchB",    	  0,            1,          1,           0,        -1,       's' },
+	{ NULL,        NULL,        "ScratchS",    	  0,            1,          1,           0,        -1,       's' },
+	{ NULL,        NULL,        "ScratchD",    	  0,            1,          1,           0,        -1,       'd' },
+	{ NULL,        NULL,        "ScratchF",    	  0,            1,          1,           0,        -1,       'f' },
+	{ NULL,        NULL,        "ScratchV",    	  0,            1,          1,           0,        -1,       'v' },
 	{ NULL,        NULL,        "Event Tester",       0,            0,          0,           1,        -1,        0  }, /* xev */
 };
 
@@ -96,7 +99,10 @@ static const char *termcmd[]  = { "st", NULL };
 
 /*First arg only serves to match against key in rules*/
 static const char *scratchcmdA[] = {"a", "st", "-t", "ScratchA", NULL}; 
-static const char *scratchcmdB[] = {"s", "st", "-t", "ScratchB", NULL}; 
+static const char *scratchcmdS[] = {"s", "st", "-t", "ScratchS", NULL}; 
+static const char *scratchcmdD[] = {"d", "st", "-t", "ScratchD", NULL}; 
+static const char *scratchcmdF[] = {"f", "st", "-t", "ScratchF", NULL}; 
+static const char *scratchcmdV[] = {"v", "st", "-t", "ScratchV", NULL}; 
 
 
 #include "movestack.c"
@@ -104,8 +110,11 @@ static const Key keys[] = {
 	/* modifier                     key        function           argument */
 	{ MODKEY,                       XK_p,      spawn,             {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,             {.v = termcmd } },
-	{ MODKEY,                       XK_a,      togglescratch,     {.v = scratchcmdA } },
-	{ MODKEY,                       XK_s,      togglescratch,     {.v = scratchcmdB } },
+	{ MODKEY|ShiftMask,             XK_a,      togglescratch,     {.v = scratchcmdA } },
+	{ MODKEY|ShiftMask,             XK_s,      togglescratch,     {.v = scratchcmdS } },
+	{ MODKEY|ShiftMask,             XK_d,      togglescratch,     {.v = scratchcmdD } },
+	{ MODKEY|ShiftMask,             XK_f,      togglescratch,     {.v = scratchcmdF } },
+	{ MODKEY|ShiftMask,             XK_v,      togglescratch,     {.v = scratchcmdV } },
 	{ MODKEY|ShiftMask,             XK_u,      scratchpad_show,   {0} },
 	{ MODKEY|ControlMask,           XK_u,      scratchpad_hide,   {0} },
 	{ MODKEY|Mod1Mask,              XK_u,      scratchpad_remove, {0} },
