@@ -38,19 +38,19 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class       instance     title                 tags mask     iscentered	isfloating  isterminal  noswallow  monitor  scratch key */
-	{ "Gimp",      NULL,        NULL,                 0,            0,		1,          0,           0,        -1,        0  },
-	{ "Firefox",   NULL,        NULL,                 1 << 8,       0,		0,          0,          -1,        -1,        0  },
-	{ "st",        NULL,        NULL,                 0,            0,		0,          1,           0,        -1,        0  },
-	{ "Alacritty", NULL,        NULL,                 0,            0,		0,          1,           0,        -1,        0  },
-	{ "Qalculate", NULL,        NULL,                 0,            0,		1,          0,           0,        -1,        0  },
-	{ NULL,        NULL,        "webcam",             0,            1,		1,          1,           0,        -1,        0  },
-	{ NULL,        NULL,        "ScratchA",     	  0,            1,		1,          1,           0,        -1,       'a' },
-	{ NULL,        NULL,        "ScratchS",    	  0,            1,		1,          1,           0,        -1,       's' },
-	{ NULL,        NULL,        "ScratchD",    	  0,            1,		1,          1,           0,        -1,       'd' },
-	{ NULL,        NULL,        "ScratchF",    	  0,            1,		1,          1,           0,        -1,       'f' },
-	{ NULL,        NULL,        "ScratchV",    	  0,            1,		1,          1,           0,        -1,       'v' },
-	{ NULL,        NULL,        "Event Tester",       0,            0,		0,          0,           1,        -1,        0  }, /* xev */
+	/* class       instance     title                 tags mask     iscentered	isfloating  isterminal  noswallow  monitor  float x,y,w,h	floatborderpx	scratch key */
+	{ "Gimp",      NULL,        NULL,                 0,            0,		1,          0,           0,        -1,      50,50,500,500,	5,		  0  },
+	{ "Firefox",   NULL,        NULL,                 1 << 8,       0,		0,          0,          -1,        -1,      50,50,500,500,	5,		  0  },
+	{ "st",        NULL,        NULL,                 0,            0,		0,          1,           0,        -1,      50,50,500,500,	5,		  0  },
+	{ "Alacritty", NULL,        NULL,                 0,            0,		0,          1,           0,        -1,      50,50,500,500,	5,		  0  },
+	{ "Qalculate", NULL,        NULL,                 0,            0,		1,          0,           0,        -1,      50,50,500,500,	5,		  0  },
+	{ NULL,        NULL,        "webcam",             0,            1,		1,          1,           0,        -1,      50,50,500,500,	5,		  0  },
+	{ NULL,        NULL,        "ScratchA",     	  0,            1,		1,          1,           0,        -1,      50,50,500,500,	5,		 'a' },
+	{ NULL,        NULL,        "ScratchS",    	  0,            1,		1,          1,           0,        -1,      50,50,500,500,	5,		 's' },
+	{ NULL,        NULL,        "ScratchD",    	  0,            1,		1,          1,           0,        -1,      50,50,500,500,	5,		 'd' },
+	{ NULL,        NULL,        "ScratchF",    	  0,            1,		1,          1,           0,        -1,      50,50,500,500,	5,		 'f' },
+	{ NULL,        NULL,        "ScratchV",    	  0,            1,		1,          1,           0,        -1,      50,50,500,500,	5,		 'v' },
+	{ NULL,        NULL,        "Event Tester",       0,            0,		0,          0,           1,        -1,      50,50,500,500,	5,		  0  }, /* xev */
 };
 
 /* layout(s) */
