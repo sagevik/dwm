@@ -43,13 +43,13 @@ static const Rule rules[] = {
 	{ "Firefox",   NULL,        NULL,                 1 << 8,       0,		0,          0,          -1,        -1,      50,50,500,500,	2,		  0  },
 	{ "st",        NULL,        NULL,                 0,            0,		0,          1,           0,        -1,      50,50,500,500,	2,		  0  },
 	{ "Alacritty", NULL,        NULL,                 0,            0,		0,          1,           0,        -1,      50,50,500,500,	2,		  0  },
-	{ "Qalculate", NULL,        NULL,                 0,            0,		1,          0,           0,        -1,      50,50,500,500,	2,		  0  },
+	{ "Qalculate", NULL,        NULL,                 0,            1,		1,          0,           0,        -1,      50,50,720,500,	2,		  0  },
 	{ NULL,        NULL,        "webcam",             0,            1,		1,          1,           0,        -1,      50,50,500,500,	2,		  0  },
 	{ NULL,        NULL,        "ScratchA",     	  0,            1,		1,          1,           0,        -1,      50,50,500,500,	2,		 'a' },
 	{ NULL,        NULL,        "ScratchS",    	  0,            1,		1,          1,           0,        -1,      50,50,500,500,	2,		 's' },
-	{ NULL,        NULL,        "ScratchD",    	  0,            1,		1,          1,           0,        -1,      50,50,500,500,	2,		 'd' },
-	{ NULL,        NULL,        "ScratchF",    	  0,            1,		1,          1,           0,        -1,      50,50,500,500,	2,		 'f' },
-	{ NULL,        NULL,        "ScratchV",    	  0,            1,		1,          1,           0,        -1,      50,50,500,500,	2,		 'v' },
+	{ NULL,        NULL,        "ScratchD",    	  0,            0,		1,          1,           0,        -1,      360,10,1200,550,	2,		 'd' },
+	{ NULL,        NULL,        "ScratchF",    	  0,            1,		1,          1,           0,        -1,      50,50,900,800,	2,		 'f' },
+	{ NULL,        NULL,        "ScratchV",    	  0,            1,		1,          1,           0,        -1,      50,50,600,500,	2,		 'v' },
 	{ NULL,        NULL,        "Event Tester",       0,            0,		0,          0,           1,        -1,      50,50,500,500,	2,		  0  }, /* xev */
 };
 
