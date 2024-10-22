@@ -51,6 +51,7 @@ static const Rule rules[] = {
 	{ NULL,        NULL,        "ScratchF",    	  0,            1,		1,          1,           0,        -1,      50,50,900,800,	2,		 'f' },
 	{ NULL,        NULL,        "ScratchV",    	  0,            1,		1,          1,           0,        -1,      50,50,600,500,	2,		 'v' },
 	{ NULL,        NULL,        "Event Tester",       0,            0,		0,          0,           1,        -1,      50,50,500,500,	2,		  0  }, /* xev */
+	{ NULL,        NULL,        "Unlock Keyring",     0,            1,		0,          0,           1,        -1,      50,50,500,500,	2,		  0  }, /* xev */
 };
 
 /* layout(s) */
