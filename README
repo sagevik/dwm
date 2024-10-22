@@ -7,7 +7,7 @@ patches from suckless.org website:
 - movestack
 - pertag
 - namedscratchpads
-- alwayscenter
+- center
 - preserveonrestart
 - resizecorners
 - focusonnetactive
