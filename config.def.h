@@ -40,7 +40,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class       instance     title                 tags mask     iscentered	isfloating  isterminal  noswallow  monitor  float x,y,w,h	floatborderpx	scratch key */
-	{ "Gimp",      NULL,        NULL,                 0,            0,		1,          0,           0,        -1,      50,50,500,500,	2,		  0  },
+	{ "Gimp",      NULL,        NULL,                 0,            1,		1,          0,           0,        -1,      50,50,1200,900,	2,		  0  },
 	{ "Firefox",   NULL,        NULL,                 1 << 8,       0,		0,          0,          -1,        -1,      50,50,500,500,	2,		  0  },
 	{ "st",        NULL,        NULL,                 0,            0,		0,          1,           0,        -1,      50,50,500,500,	2,		  0  },
 	{ "Alacritty", NULL,        NULL,                 0,            0,		0,          1,           0,        -1,      50,50,500,500,	2,		  0  },
