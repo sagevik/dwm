@@ -17,6 +17,8 @@ patches from suckless.org website:
 - dynamicscratchpads
 - hide vacant tags
 - titlecolor
+- statusallmons
+- windowfollow
 
 
 dwm - dynamic window manager
