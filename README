@@ -19,6 +19,7 @@ patches from suckless.org website:
 - titlecolor
 - statusallmons
 - windowfollow
+- keychords
 
 
 dwm - dynamic window manager
