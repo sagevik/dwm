@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -117,6 +118,23 @@ static const char *fileexplorer[] = {"nemo", NULL};
 static const char *vmselector[]   = {"vmselector", NULL};
 static const char *gimp[]         = {"gimp", NULL};
 static const char *browser[]      = {"brave", NULL};
+// Media control
+static const char *voldown[]      = {"volume", "down", NULL};
+static const char *volup[]        = {"volume", "up", NULL};
+static const char *volmute[]      = {"volume", "mute", NULL};
+static const char *volset[]       = {"volume", "setvolume", NULL};
+// Brightness control
+static const char *brightdown[]   = {"brightness", "down", NULL};
+static const char *brightup[]     = {"brightness", "up", NULL};
+// Screenshot
+static const char *scrshotsel[]   = {"scrshot", "selection", NULL};
+static const char *scrshotwin[]   = {"scrshot", "window", NULL};
+static const char *scrshotscr[]   = {"scrshot", "fullscreen", NULL};
+// Display
+static const char *displaysel[]   = {"displayselect", NULL};
+static const char *displayset[]   = {"monitorsetup", NULL};
+// Power menu
+static const char *powermenu[]    = {"pow", NULL};
 
 
 #include "movestack.c"
@@ -201,12 +219,29 @@ static Keychord *keychords[] = {
 	TAGKEYS(                        XK_8,                         7)
 	TAGKEYS(                        XK_9,                         8)
 	// Application launcher keys
-        &((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_c}},        	spawn,             {.v = qalculate } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_f}},        	spawn,             {.v = fileexplorer } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_v}},        	spawn,             {.v = vmselector } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_g}},        	spawn,             {.v = gimp } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_b}},        	spawn,             {.v = browser } }),
-
+        &((Keychord){2, {{MODKEY, XK_o}, {0, XK_c}},       		spawn,             {.v = qalculate } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_f}},       		spawn,             {.v = fileexplorer } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_v}},       		spawn,             {.v = vmselector } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_g}},       		spawn,             {.v = gimp } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_b}},       		spawn,             {.v = browser } }),
+	// Audio controls
+	&((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			spawn,             {.v = voldown } }),
+	&((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			spawn,             {.v = volup } }),
+	&((Keychord){1, {{0, XF86XK_AudioMute}},			spawn,             {.v = volmute } }),
+	&((Keychord){1, {{MODKEY, XF86XK_AudioMute}},			spawn,             {.v = volset } }),
+	// Screen brightness
+	&((Keychord){1, {{0, XF86XK_MonBrightnessDown}},		spawn,             {.v = brightdown } }),
+	&((Keychord){1, {{0, XF86XK_MonBrightnessUp}},			spawn,             {.v = brightup } }),
+	// Screenshot
+	&((Keychord){1, {{0, 0xff61}},			                spawn,             {.v = scrshotsel } }),
+	&((Keychord){1, {{ShiftMask, 0xff61}},		                spawn,             {.v = scrshotwin } }),
+	&((Keychord){1, {{ControlMask, 0xff61}},	                spawn,             {.v = scrshotscr } }),
+	// Display setup
+	&((Keychord){1, {{MODKEY|Mod1Mask, XK_p}},	                spawn,             {.v = displaysel } }),
+	&((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_p}},	        spawn,             {.v = displayset } }),
+	// Power menu
+	&((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_l}},	        spawn,             {.v = powermenu } }),
+	
 
 };
 
