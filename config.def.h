@@ -4,10 +4,10 @@
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 16;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const unsigned int gappih    = 4;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 4;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 4;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 4;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 4;       	/* horiz inner gap between windows */
+static const unsigned int gappiv    = 4;       	/* vert inner gap between windows */
+static const unsigned int gappoh    = 4;       	/* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 4;       	/* vert outer gap between windows and screen edge */
 static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
@@ -114,85 +114,81 @@ static const char *scratchcmdV[] = {"v", "st", "-t", "ScratchV", NULL};
 
 #include "movestack.c"
 static const Key keys[] = {
-	/* modifier                     key        function           argument */
-	{ MODKEY,                       XK_p,      spawn,             {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,             {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_a,      togglescratch,     {.v = scratchcmdA } },
-	{ MODKEY|ShiftMask,             XK_s,      togglescratch,     {.v = scratchcmdS } },
-	{ MODKEY|ShiftMask,             XK_d,      togglescratch,     {.v = scratchcmdD } },
-	{ MODKEY|ShiftMask,             XK_f,      togglescratch,     {.v = scratchcmdF } },
-	{ MODKEY|ShiftMask,             XK_v,      togglescratch,     {.v = scratchcmdV } },
-	{ MODKEY|ShiftMask,             XK_u,      scratchpad_show,   {0} },
-	{ MODKEY|ControlMask,           XK_u,      scratchpad_hide,   {0} },
-	{ MODKEY|Mod1Mask,              XK_u,      scratchpad_remove, {0} },
-	{ MODKEY,                       XK_b,      togglebar,         {0} },
-	{ MODKEY,                       XK_n,      togglefollow,   {0} },
-	{ MODKEY,                       XK_j,      focusstack,        {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,        {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,        {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,        {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,          {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,          {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_h,      setcfact,          {.f = +0.25} },
-	{ MODKEY|ShiftMask,             XK_l,      setcfact,          {.f = -0.25} },
-	{ MODKEY|ShiftMask,             XK_o,      setcfact,          {.f =  0.00} },
-	{ MODKEY|ShiftMask,             XK_j,      movestack,         {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      movestack,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_Return, zoom,              {0} },
-//+	{ MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
-//+	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
-//+	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
-//+	{ MODKEY|Mod1Mask,              XK_u,      incrgaps,       {.i = +1 } },
-//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_u,      incrgaps,       {.i = -1 } },
-//+	{ MODKEY|Mod1Mask,              XK_i,      incrigaps,      {.i = +1 } },
-//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_i,      incrigaps,      {.i = -1 } },
-//+	{ MODKEY|Mod1Mask,              XK_o,      incrogaps,      {.i = +1 } },
-//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_o,      incrogaps,      {.i = -1 } },
-//+	{ MODKEY|Mod1Mask,              XK_6,      incrihgaps,     {.i = +1 } },
-//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_6,      incrihgaps,     {.i = -1 } },
-//+	{ MODKEY|Mod1Mask,              XK_7,      incrivgaps,     {.i = +1 } },
-//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_7,      incrivgaps,     {.i = -1 } },
-//+	{ MODKEY|Mod1Mask,              XK_8,      incrohgaps,     {.i = +1 } },
-//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_8,      incrohgaps,     {.i = -1 } },
-//+	{ MODKEY|Mod1Mask,              XK_9,      incrovgaps,     {.i = +1 } },
-//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } },
-//+	{ MODKEY|Mod1Mask,              XK_0,      togglegaps,     {0} },
-//+	{ MODKEY|Mod1Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
-	{ MODKEY|Mod1Mask,              XK_0,      togglegaps,        {0} },
-	{ MODKEY,                       XK_Tab,    view,              {0} },
-	{ MODKEY,                       XK_q,      killclient,        {0} },
-	{ MODKEY,                       XK_t,      setlayout,         {.v = &layouts[0]} }, // set layout 0 []= tile
-	{ MODKEY,                       XK_f,      setlayout,         {.v = &layouts[1]} }, // set layout 1 ><> floating
-	{ MODKEY,                       XK_m,      setlayout,         {.v = &layouts[2]} }, // set layout 2 [M] monocle
-	{ MODKEY|ShiftMask,             XK_t,      setlayout,         {.v = &layouts[3]} }, // set layout 3 [\\] dwindle
-	{ MODKEY|ControlMask,           XK_t,      setlayout,         {.v = &layouts[4]} }, // set layout 4 TTT bstack
-	{ MODKEY|ShiftMask,             XK_m,      setlayout,         {.v = &layouts[5]} }, // set layout 5 |M| centeredmaster
-	{ MODKEY|ControlMask,           XK_m,      setlayout,         {.v = &layouts[6]} }, // set layout 6 >M> centeredfloatingmaster
-	{ MODKEY|Mod1Mask,              XK_t,      setlayout,         {.v = &layouts[7]} }, // set layout 7 [@] spiral
-	{ MODKEY|ShiftMask|ControlMask, XK_t,      setlayout,         {.v = &layouts[8]} }, // set layout 8 H[] deck
-	{ MODKEY|Mod1Mask,              XK_m,      setlayout,         {.v = &layouts[9]} }, // set layout 9 === bstackhoriz
-	{ MODKEY,                       XK_g,      setlayout,         {.v = &layouts[10]} }, // set layout 10 HHH grid
-	{ MODKEY|ShiftMask,             XK_g,      setlayout,         {.v = &layouts[11]} }, // set layout 11 ### nrowgrid 
-	{ MODKEY|ControlMask,           XK_g,      setlayout,         {.v = &layouts[12]} }, // set layout 12 --- horizgrid 
-	{ MODKEY|Mod1Mask,              XK_g,      setlayout,         {.v = &layouts[13]} }, // set layout 13 ::: gaplessgrid 
-	{ MODKEY,                       XK_space,  setlayout,         {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating,    {0} },
-	{ MODKEY,                       XK_0,      view,              {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,               {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,          {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,          {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,            {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,            {.i = +1 } },
-	TAGKEYS(                        XK_1,                         0)
-	TAGKEYS(                        XK_2,                         1)
-	TAGKEYS(                        XK_3,                         2)
-	TAGKEYS(                        XK_4,                         3)
-	TAGKEYS(                        XK_5,                         4)
-	TAGKEYS(                        XK_6,                         5)
-	TAGKEYS(                        XK_7,                         6)
-	TAGKEYS(                        XK_8,                         7)
-	TAGKEYS(                        XK_9,                         8)
-	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,              {0} },
+	/* modifier                     		key        function           argument */
+	{ MODKEY,                       		XK_p,      spawn,             {.v = dmenucmd } },
+	{ MODKEY,                       		XK_Return, spawn,             {.v = termcmd } },
+	{ MODKEY|ShiftMask,             		XK_a,      togglescratch,     {.v = scratchcmdA } },
+	{ MODKEY|ShiftMask,             		XK_s,      togglescratch,     {.v = scratchcmdS } },
+	{ MODKEY|ShiftMask,             		XK_d,      togglescratch,     {.v = scratchcmdD } },
+	{ MODKEY|ShiftMask,             		XK_f,      togglescratch,     {.v = scratchcmdF } },
+	{ MODKEY|ShiftMask,             		XK_v,      togglescratch,     {.v = scratchcmdV } },
+	{ MODKEY|ShiftMask,             		XK_u,      scratchpad_show,   {0} },
+	{ MODKEY|ControlMask,           		XK_u,      scratchpad_hide,   {0} },
+	{ MODKEY|Mod1Mask,              		XK_u,      scratchpad_remove, {0} },
+	{ MODKEY,                       		XK_b,      togglebar,         {0} },
+	{ MODKEY,                       		XK_n,      togglefollow,      {0} },
+	{ MODKEY,                       		XK_j,      focusstack,        {.i = +1 } },
+	{ MODKEY,                       		XK_k,      focusstack,        {.i = -1 } },
+	{ MODKEY,                       		XK_i,      incnmaster,        {.i = +1 } },
+	{ MODKEY,                       		XK_d,      incnmaster,        {.i = -1 } },
+	{ MODKEY,                       		XK_h,      setmfact,          {.f = -0.05} },
+	{ MODKEY,                       		XK_l,      setmfact,          {.f = +0.05} },
+	{ MODKEY|ShiftMask,             		XK_h,      setcfact,          {.f = +0.25} },
+	{ MODKEY|ShiftMask,             		XK_l,      setcfact,          {.f = -0.25} },
+	{ MODKEY|ShiftMask,             		XK_o,      setcfact,          {.f =  0.00} },
+	{ MODKEY|ShiftMask,             		XK_j,      movestack,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             		XK_k,      movestack,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             		XK_Return, zoom,              {0} },
+	{ MODKEY|Mod1Mask|ControlMask,  		XK_i,      incrgaps,          {.i = +1 } },
+	{ MODKEY|Mod1Mask|ControlMask|ShiftMask,        XK_i,      incrgaps,          {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              		XK_i,      incrigaps,         {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    		XK_i,      incrigaps,         {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              		XK_o,      incrogaps,         {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    		XK_o,      incrogaps,         {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              		XK_6,      incrihgaps,        {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    		XK_6,      incrihgaps,        {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              		XK_7,      incrivgaps,        {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    		XK_7,      incrivgaps,        {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              		XK_8,      incrohgaps,        {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    		XK_8,      incrohgaps,        {.i = -1 } },
+//+	{ MODKEY|Mod1Mask,              		XK_9,      incrovgaps,        {.i = +1 } },
+//+	{ MODKEY|Mod1Mask|ShiftMask,    		XK_9,      incrovgaps,        {.i = -1 } },
+	{ MODKEY|Mod1Mask|ShiftMask,    		XK_0,      defaultgaps,       {0} },
+	{ MODKEY|Mod1Mask,              		XK_0,      togglegaps,        {0} },
+	{ MODKEY,                       		XK_Tab,    view,              {0} },
+	{ MODKEY,                       		XK_q,      killclient,        {0} },
+	{ MODKEY,                       		XK_t,      setlayout,         {.v = &layouts[0]} }, // set layout 0 []= tile
+	{ MODKEY,                       		XK_f,      setlayout,         {.v = &layouts[1]} }, // set layout 1 ><> floating
+	{ MODKEY,                       		XK_m,      setlayout,         {.v = &layouts[2]} }, // set layout 2 [M] monocle
+	{ MODKEY|ShiftMask,             		XK_t,      setlayout,         {.v = &layouts[3]} }, // set layout 3 [\\] dwindle
+	{ MODKEY|ControlMask,           		XK_t,      setlayout,         {.v = &layouts[4]} }, // set layout 4 TTT bstack
+	{ MODKEY|ShiftMask,             		XK_m,      setlayout,         {.v = &layouts[5]} }, // set layout 5 |M| centeredmaster
+	{ MODKEY|ControlMask,           		XK_m,      setlayout,         {.v = &layouts[6]} }, // set layout 6 >M> centeredfloatingmaster
+	{ MODKEY|Mod1Mask,              		XK_t,      setlayout,         {.v = &layouts[7]} }, // set layout 7 [@] spiral
+	{ MODKEY|ShiftMask|ControlMask, 		XK_t,      setlayout,         {.v = &layouts[8]} }, // set layout 8 H[] deck
+	{ MODKEY|Mod1Mask,              		XK_m,      setlayout,         {.v = &layouts[9]} }, // set layout 9 === bstackhoriz
+	{ MODKEY,                       		XK_g,      setlayout,         {.v = &layouts[10]} }, // set layout 10 HHH grid
+	{ MODKEY|ShiftMask,             		XK_g,      setlayout,         {.v = &layouts[11]} }, // set layout 11 ### nrowgrid 
+	{ MODKEY|ControlMask,           		XK_g,      setlayout,         {.v = &layouts[12]} }, // set layout 12 --- horizgrid 
+	{ MODKEY|Mod1Mask,              		XK_g,      setlayout,         {.v = &layouts[13]} }, // set layout 13 ::: gaplessgrid 
+	{ MODKEY,                       		XK_space,  setlayout,         {0} },
+	{ MODKEY|ShiftMask,             		XK_space,  togglefloating,    {0} },
+	{ MODKEY,                       		XK_0,      view,              {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             		XK_0,      tag,               {.ui = ~0 } },
+	{ MODKEY,                       		XK_comma,  focusmon,          {.i = -1 } },
+	{ MODKEY,                       		XK_period, focusmon,          {.i = +1 } },
+	{ MODKEY|ShiftMask,             		XK_comma,  tagmon,            {.i = -1 } },
+	{ MODKEY|ShiftMask,             		XK_period, tagmon,            {.i = +1 } },
+	TAGKEYS(                        		XK_1,                         0)
+	TAGKEYS(                        		XK_2,                         1)
+	TAGKEYS(                        		XK_3,                         2)
+	TAGKEYS(                        		XK_4,                         3)
+	TAGKEYS(                        		XK_5,                         4)
+	TAGKEYS(                        		XK_6,                         5)
+	TAGKEYS(                        		XK_7,                         6)
+	TAGKEYS(                        		XK_8,                         7)
+	TAGKEYS(                        		XK_9,                         8)
+	{ MODKEY|ControlMask|ShiftMask, 		XK_q,      quit,              {0} },
 };
 
 /* button definitions */
