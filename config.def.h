@@ -73,19 +73,14 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },			// first entry is default
-	{ "><>",      NULL },			// no layout function means floating behavior
-	{ "[M]",      monocle },
 	{ "[\\]",     dwindle },
 	{ "TTT",      bstack },
+    { "###",      nrowgrid },
+    { "[M]",      monocle },
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
-	{ "[@]",      spiral },
-	{ "H[]",      deck },
-	{ "===",      bstackhoriz },
-	{ "HHH",      grid },
-	{ "###",      nrowgrid },
-	{ "---",      horizgrid },
-	{ ":::",      gaplessgrid },
+    { "===",      bstackhoriz },
+    { "><>",      NULL },			// no layout function means floating behavior
 	{ NULL,       NULL },
 };
 
@@ -146,20 +141,20 @@ static const Key keys[] = {
 	{ MODKEY|Mod1Mask,                      XK_0,      togglegaps,        {0} },
 	{ MODKEY,                               XK_Tab,    view,              {0} },
 	{ MODKEY,                               XK_q,      killclient,        {0} },
+// Set layouts
 	{ MODKEY,                               XK_t,      setlayout,         {.v = &layouts[0]} }, // set layout 0 []= tile
-	{ MODKEY,                               XK_f,      setlayout,         {.v = &layouts[1]} }, // set layout 1 ><> floating
-	{ MODKEY,                               XK_m,      setlayout,         {.v = &layouts[2]} }, // set layout 2 [M] monocle
-	{ MODKEY|ShiftMask,                     XK_t,      setlayout,         {.v = &layouts[3]} }, // set layout 3 [\\] dwindle
-	{ MODKEY|ControlMask,                   XK_t,      setlayout,         {.v = &layouts[4]} }, // set layout 4 TTT bstack
+    { MODKEY|ShiftMask,                     XK_t,      setlayout,         {.v = &layouts[1]} }, // set layout 1 [\\] dwindle
+    { MODKEY|ControlMask,                   XK_t,      setlayout,         {.v = &layouts[2]} }, // set layout 2 TTT bstack
+    { MODKEY|ShiftMask|ControlMask,         XK_t,      setlayout,         {.v = &layouts[3]} }, // set layout 3 ### nrowgrid
+	{ MODKEY,                               XK_m,      setlayout,         {.v = &layouts[4]} }, // set layout 4 [M] monocle
 	{ MODKEY|ShiftMask,                     XK_m,      setlayout,         {.v = &layouts[5]} }, // set layout 5 |M| centeredmaster
 	{ MODKEY|ControlMask,                   XK_m,      setlayout,         {.v = &layouts[6]} }, // set layout 6 >M> centeredfloatingmaster
-	{ MODKEY|Mod1Mask,                      XK_t,      setlayout,         {.v = &layouts[7]} }, // set layout 7 [@] spiral
-	{ MODKEY|ShiftMask|ControlMask,         XK_t,      setlayout,         {.v = &layouts[8]} }, // set layout 8 H[] deck
-	{ MODKEY|Mod1Mask,                      XK_m,      setlayout,         {.v = &layouts[9]} }, // set layout 9 === bstackhoriz
-	{ MODKEY,                               XK_g,      setlayout,         {.v = &layouts[10]} }, // set layout 10 HHH grid
-	{ MODKEY|ShiftMask,                     XK_g,      setlayout,         {.v = &layouts[11]} }, // set layout 11 ### nrowgrid
-	{ MODKEY|ControlMask,                   XK_g,      setlayout,         {.v = &layouts[12]} }, // set layout 12 --- horizgrid
-	{ MODKEY|Mod1Mask,                      XK_g,      setlayout,         {.v = &layouts[13]} }, // set layout 13 ::: gaplessgrid
+	{ MODKEY|ShiftMask|ControlMask,         XK_m,      setlayout,         {.v = &layouts[7]} }, // set layout 7 === bstackhoriz
+    { MODKEY,                               XK_f,      setlayout,         {.v = &layouts[8]} }, // set layout 8 ><> floating
+	//{ MODKEY,                               XK_g,      setlayout,         {.v = &layouts[10]} }, // set layout 10 HHH grid
+	//{ MODKEY|ShiftMask,                     XK_g,      setlayout,         {.v = &layouts[11]} }, // set layout 11 ### nrowgrid
+	//{ MODKEY|ControlMask,                   XK_g,      setlayout,         {.v = &layouts[12]} }, // set layout 12 --- horizgrid
+	//{ MODKEY|Mod1Mask,                      XK_g,      setlayout,         {.v = &layouts[13]} }, // set layout 13 ::: gaplessgrid
 	{ MODKEY,                               XK_space,  setlayout,         {0} },
 	{ MODKEY|ShiftMask,                     XK_space,  togglefloating,    {0} },
 	{ MODKEY,                               XK_0,      view,              {.ui = ~0 } },
