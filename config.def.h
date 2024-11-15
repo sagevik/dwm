@@ -40,20 +40,20 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class       instance     title                 tags mask     iscentered	isfloating  isterminal  noswallow  monitor  float x,y,w,h	floatborderpx	scratch key */
-	{ "Gimp",      NULL,        NULL,                 0,            1,		1,          0,           0,        -1,      50,50,1200,900,	2,		  0  },
-	{ "Firefox",   NULL,        NULL,                 1 << 8,       0,		0,          0,          -1,        -1,      50,50,500,500,	2,		  0  },
-	{ "st",        NULL,        NULL,                 0,            0,		0,          1,           0,        -1,      50,50,500,500,	2,		  0  },
-	{ "Alacritty", NULL,        NULL,                 0,            0,		0,          1,           0,        -1,      50,50,500,500,	2,		  0  },
-	{ "Qalculate", NULL,        NULL,                 0,            1,		1,          0,           0,        -1,      50,50,720,500,	2,		  0  },
-	{ NULL,        NULL,        "webcam",             0,            1,		1,          1,           0,        -1,      50,50,500,500,	2,		  0  },
-	{ NULL,        NULL,        "ScratchA",     	  0,            1,		1,          1,           0,        -1,      50,50,500,500,	2,		 'a' },
-	{ NULL,        NULL,        "ScratchS",    	  0,            1,		1,          1,           0,        -1,      50,50,500,500,	2,		 's' },
-	{ NULL,        NULL,        "ScratchD",    	  0,            0,		1,          1,           0,        -1,      360,10,1200,550,	2,		 'd' },
-	{ NULL,        NULL,        "ScratchF",    	  0,            1,		1,          1,           0,        -1,      50,50,900,800,	2,		 'f' },
-	{ NULL,        NULL,        "ScratchV",    	  0,            1,		1,          1,           0,        -1,      50,50,600,500,	2,		 'v' },
-	{ NULL,        NULL,        "Event Tester",       0,            0,		0,          0,           1,        -1,      50,50,500,500,	2,		  0  }, /* xev */
-	{ NULL,        NULL,        "Unlock Keyring",     0,            1,		0,          0,           1,        -1,      50,50,500,500,	2,		  0  }, /* xev */
+	/* class       instance     title                 tags mask     iscentered	isfloating  isterminal  noswallow  monitor  float x,y,w,h	    floatborderpx	scratch key */
+	{ "Gimp",      NULL,        NULL,                 0,            1,		    1,          0,           0,        -1,      50,50,1200,900,	    2,		         0  },
+	{ "Firefox",   NULL,        NULL,                 1 << 8,       0,		    0,          0,          -1,        -1,      50,50,500,500,	    2,		         0  },
+	{ "st",        NULL,        NULL,                 0,            0,		    0,          1,           0,        -1,      50,50,500,500,	    2,		         0  },
+	{ "Alacritty", NULL,        NULL,                 0,            0,		    0,          1,           0,        -1,      50,50,500,500,	    2,		         0  },
+	{ "Qalculate", NULL,        NULL,                 0,            1,		    1,          0,           0,        -1,      50,50,720,500,	    2,		         0  },
+	{ NULL,        NULL,        "webcam",             0,            1,		    1,          1,           0,        -1,      50,50,500,500,	    2,		         0  },
+	{ NULL,        NULL,        "ScratchA",           0,            1,		    1,          1,           0,        -1,      50,50,500,500,	    2,		        'a' },
+	{ NULL,        NULL,        "ScratchS",           0,            1,		    1,          1,           0,        -1,      50,50,500,500,	    2,		        's' },
+	{ NULL,        NULL,        "ScratchD",           0,            0,		    1,          1,           0,        -1,      360,10,1200,550,	2,		        'd' },
+	{ NULL,        NULL,        "ScratchF",           0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'f' },
+	{ NULL,        NULL,        "ScratchV",           0,            1,		    1,          1,           0,        -1,      50,50,600,500,	    2,		        'v' },
+	{ NULL,        NULL,        "Event Tester",       0,            0,		    0,          0,           1,        -1,      50,50,500,500,	    2,		         0  }, /* xev */
+	{ NULL,        NULL,        "Unlock Keyring",     0,            1,		    0,          0,           1,        -1,      50,50,500,500,	    2,		         0  },
 };
 
 /* window following */
@@ -106,11 +106,11 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchcmdA[] = {"a", "st", "-t", "ScratchA", NULL}; 
-static const char *scratchcmdS[] = {"s", "st", "-t", "ScratchS", NULL}; 
-static const char *scratchcmdD[] = {"d", "st", "-t", "ScratchD", NULL}; 
-static const char *scratchcmdF[] = {"f", "st", "-t", "ScratchF", NULL}; 
-static const char *scratchcmdV[] = {"v", "st", "-t", "ScratchV", NULL}; 
+static const char *scratchcmdA[] = {"a", "st", "-t", "ScratchA", NULL};
+static const char *scratchcmdS[] = {"s", "st", "-t", "ScratchS", NULL};
+static const char *scratchcmdD[] = {"d", "st", "-t", "ScratchD", NULL};
+static const char *scratchcmdF[] = {"f", "st", "-t", "ScratchF", NULL};
+static const char *scratchcmdV[] = {"v", "st", "-t", "ScratchV", NULL};
 
 // Application launcher commands
 static const char *qalculate[]    = {"qalculate-gtk", NULL};
@@ -139,8 +139,8 @@ static const char *powermenu[]    = {"pow", NULL};
 
 #include "movestack.c"
 static Keychord *keychords[] = {
-	/* modifier                                      key        	function           argument */
-	&((Keychord){1, {{ MODKEY,                       XK_p}},      	spawn,             {.v = dmenucmd } }),
+	/* modifier                                      key            function           argument */
+	&((Keychord){1, {{ MODKEY,                       XK_p}},        spawn,             {.v = dmenucmd } }),
 	&((Keychord){1, {{ MODKEY,                       XK_Return}},   spawn,             {.v = termcmd } }),
 	&((Keychord){1, {{ MODKEY|ShiftMask,             XK_a}},        togglescratch,     {.v = scratchcmdA } }),
 	&((Keychord){1, {{ MODKEY|ShiftMask,             XK_s}},        togglescratch,     {.v = scratchcmdS } }),
@@ -186,7 +186,7 @@ static Keychord *keychords[] = {
 	&((Keychord){1, {{ MODKEY|Mod1Mask,              XK_0}},        togglegaps,        {0} }),
 	&((Keychord){1, {{ MODKEY,                       XK_Tab}},      view,              {0} }),
 	&((Keychord){1, {{ MODKEY,                       XK_q}},        killclient,        {0} }),
-	&((Keychord){1, {{ MODKEY, 			 XK_t}},        setlayout,         {.v = &layouts[0]} }), // set layout 0 []= tile
+	&((Keychord){1, {{ MODKEY,                       XK_t}},        setlayout,         {.v = &layouts[0]} }), // set layout 0 []= tile
 	&((Keychord){1, {{ MODKEY,                       XK_f}},        setlayout,         {.v = &layouts[1]} }), // set layout 1 ><> floating
 	&((Keychord){1, {{ MODKEY,                       XK_m}},        setlayout,         {.v = &layouts[2]} }), // set layout 2 [M] monocle
 	&((Keychord){1, {{ MODKEY|ShiftMask,             XK_t}},        setlayout,         {.v = &layouts[3]} }), // set layout 3 [\\] dwindle
@@ -209,7 +209,30 @@ static Keychord *keychords[] = {
 	&((Keychord){1, {{ MODKEY|ShiftMask,             XK_comma}},    tagmon,            {.i = -1 } }),
 	&((Keychord){1, {{ MODKEY|ShiftMask,             XK_period}},   tagmon,            {.i = +1 } }),
 	&((Keychord){1, {{ MODKEY|ControlMask|ShiftMask, XK_q}},        quit,              {0} }),
-	TAGKEYS(                        XK_1,                         0)
+	// Application launcher keys
+    &((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_c}},               spawn,             {.v = qalculate } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_f}},               spawn,             {.v = fileexplorer } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_v}},               spawn,             {.v = vmselector } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_g}},               spawn,             {.v = gimp } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_b}},               spawn,             {.v = browser } }),
+	// Audio controls
+	&((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			        spawn,             {.v = voldown } }),
+	&((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			        spawn,             {.v = volup } }),
+	&((Keychord){1, {{0, XF86XK_AudioMute}},			            spawn,             {.v = volmute } }),
+	&((Keychord){1, {{MODKEY, XF86XK_AudioMute}},			        spawn,             {.v = volset } }),
+	// Screen brightness
+	&((Keychord){1, {{0, XF86XK_MonBrightnessDown}},		        spawn,             {.v = brightdown } }),
+	&((Keychord){1, {{0, XF86XK_MonBrightnessUp}},			        spawn,             {.v = brightup } }),
+	// Screenshot
+	&((Keychord){1, {{0, 0xff61}},			                        spawn,             {.v = scrshotsel } }),
+	&((Keychord){1, {{ShiftMask, 0xff61}},		                    spawn,             {.v = scrshotwin } }),
+	&((Keychord){1, {{ControlMask, 0xff61}},	                    spawn,             {.v = scrshotscr } }),
+	// Display setup
+	&((Keychord){1, {{MODKEY|Mod1Mask, XK_p}},	                    spawn,             {.v = displaysel } }),
+	&((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_p}},	        spawn,             {.v = displayset } }),
+	// Power menu
+	&((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},	            spawn,             {.v = powermenu } }),
+    TAGKEYS(                        XK_1,                         0)
 	TAGKEYS(                        XK_2,                         1)
 	TAGKEYS(                        XK_3,                         2)
 	TAGKEYS(                        XK_4,                         3)
@@ -218,30 +241,6 @@ static Keychord *keychords[] = {
 	TAGKEYS(                        XK_7,                         6)
 	TAGKEYS(                        XK_8,                         7)
 	TAGKEYS(                        XK_9,                         8)
-	// Application launcher keys
-        &((Keychord){2, {{MODKEY, XK_o}, {0, XK_c}},       		spawn,             {.v = qalculate } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_f}},       		spawn,             {.v = fileexplorer } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_v}},       		spawn,             {.v = vmselector } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_g}},       		spawn,             {.v = gimp } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_b}},       		spawn,             {.v = browser } }),
-	// Audio controls
-	&((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			spawn,             {.v = voldown } }),
-	&((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			spawn,             {.v = volup } }),
-	&((Keychord){1, {{0, XF86XK_AudioMute}},			spawn,             {.v = volmute } }),
-	&((Keychord){1, {{MODKEY, XF86XK_AudioMute}},			spawn,             {.v = volset } }),
-	// Screen brightness
-	&((Keychord){1, {{0, XF86XK_MonBrightnessDown}},		spawn,             {.v = brightdown } }),
-	&((Keychord){1, {{0, XF86XK_MonBrightnessUp}},			spawn,             {.v = brightup } }),
-	// Screenshot
-	&((Keychord){1, {{0, 0xff61}},			                spawn,             {.v = scrshotsel } }),
-	&((Keychord){1, {{ShiftMask, 0xff61}},		                spawn,             {.v = scrshotwin } }),
-	&((Keychord){1, {{ControlMask, 0xff61}},	                spawn,             {.v = scrshotscr } }),
-	// Display setup
-	&((Keychord){1, {{MODKEY|Mod1Mask, XK_p}},	                spawn,             {.v = displaysel } }),
-	&((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_p}},	        spawn,             {.v = displayset } }),
-	// Power menu
-	&((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_l}},	        spawn,             {.v = powermenu } }),
-	
 
 };
 
