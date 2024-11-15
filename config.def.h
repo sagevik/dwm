@@ -9,7 +9,7 @@ static const unsigned int gappih    = 4;       /* horiz inner gap between window
 static const unsigned int gappiv    = 4;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 4;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 4;       /* vert outer gap between windows and screen edge */
-static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
+static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -167,8 +167,8 @@ static Keychord *keychords[] = {
 //+	&((Keychord){1, {{ MODKEY|ShiftMask,             XK_h}},        setcfact,          {.f = +0.25} }),
 //+	&((Keychord){1, {{ MODKEY|ShiftMask,             XK_l}},        setcfact,          {.f = -0.25} }),
 //+	&((Keychord){1, {{ MODKEY|ShiftMask,             XK_o}},        setcfact,          {.f =  0.00} }),
-//+	&((Keychord){1, {{ MODKEY|Mod1Mask,              XK_u}},        incrgaps,          {.i = +1 } }),
-//+	&((Keychord){1, {{ MODKEY|Mod1Mask|ShiftMask,    XK_u}},        incrgaps,          {.i = -1 } }),
+	&((Keychord){1, {{ MODKEY|Mod1Mask,              XK_plus}},     incrgaps,          {.i = +4 } }),
+	&((Keychord){1, {{ MODKEY|Mod1Mask,              XK_minus}},    incrgaps,          {.i = -4 } }),
 //+	&((Keychord){1, {{ MODKEY|Mod1Mask,              XK_i}},        incrigaps,         {.i = +1 } }),
 //+	&((Keychord){1, {{ MODKEY|Mod1Mask|ShiftMask,    XK_i}},        incrigaps,         {.i = -1 } }),
 //+	&((Keychord){1, {{ MODKEY|Mod1Mask,              XK_o}},        incrogaps,         {.i = +1 } }),
@@ -182,7 +182,7 @@ static Keychord *keychords[] = {
 //+	&((Keychord){1, {{ MODKEY|Mod1Mask,              XK_9}},        incrovgaps,        {.i = +1 } }),
 //+	&((Keychord){1, {{ MODKEY|Mod1Mask|ShiftMask,    XK_9}},        incrovgaps,        {.i = -1 } }),
 //+	&((Keychord){1, {{ MODKEY|Mod1Mask,              XK_0}},        togglegaps,        {0} }),
-//+	&((Keychord){1, {{ MODKEY|Mod1Mask|ShiftMask,    XK_0}},        defaultgaps,       {0} }),
+	&((Keychord){1, {{ MODKEY|Mod1Mask|ShiftMask,    XK_0}},        defaultgaps,       {0} }),
 	&((Keychord){1, {{ MODKEY|Mod1Mask,              XK_0}},        togglegaps,        {0} }),
 	&((Keychord){1, {{ MODKEY,                       XK_Tab}},      view,              {0} }),
 	&((Keychord){1, {{ MODKEY,                       XK_q}},        killclient,        {0} }),
