@@ -40,22 +40,21 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class       instance     title                 tags mask     iscentered	isfloating  isterminal  noswallow  monitor  float x,y,w,h	    floatborderpx	scratch key */
-	{ "Gimp",      NULL,        NULL,                 0,            1,		    1,          0,           0,        -1,      50,50,1200,900,	    2,		         0  },
-	{ "Firefox",   NULL,        NULL,                 1 << 8,       0,		    0,          0,          -1,        -1,      50,50,500,500,	    2,		         0  },
-	{ "st",        NULL,        NULL,                 0,            1,		    0,          1,           0,        -1,      50,50,500,500,	    2,		         0  },
-	{ "Alacritty", NULL,        NULL,                 0,            0,		    0,          1,           0,        -1,      50,50,500,500,	    2,		         0  },
-	{ "Qalculate", NULL,        NULL,                 0,            1,		    1,          0,           0,        -1,      50,50,720,500,	    2,		         0  },
-	{ NULL,        NULL,        "webcam",             0,            1,		    1,          1,           0,        -1,      50,50,320,240,	    2,		         0  },
-	{ NULL,        NULL,        "nmtui",              0,            1,		    1,          1,           0,        -1,      50,50,450,650,	    2,		         0  },
-	{ NULL,        NULL,        "ScratchA",           0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'a' },
-	{ NULL,        NULL,        "ScratchS",           0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        's' },
-	{ NULL,        NULL,        "ScratchD",           0,            1,		    1,          1,           0,        -1,      360,10,1200,650,	2,		        'd' },
-	{ NULL,        NULL,        "ScratchF",           0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'f' },
-	{ NULL,        NULL,        "ScratchV",           0,            1,		    1,          1,           0,        -1,      50,50,600,500,	    2,		        'v' },
+	/* class        instance     title                 tags mask     iscentered	isfloating  isterminal  noswallow  monitor  float x,y,w,h	    floatborderpx	scratch key */
+	{ "Gimp",       NULL,        NULL,                 0,            1,		    1,          0,           0,        -1,      50,50,1700,1000,    2,		         0  },
+	{ "Firefox",    NULL,        NULL,                 1 << 1,       0,		    0,          0,          -1,        -1,      50,50,500,500,	    2,		         0  },
+	{ "st",         NULL,        NULL,                 0,            1,		    0,          1,           0,        -1,      50,50,500,500,	    2,		         0  },
+	{ "Qalculate",  NULL,        NULL,                 0,            1,		    1,          0,           0,        -1,      50,50,720,500,	    2,		         0  },
+	{ NULL,         NULL,        "webcam",             0,            1,		    1,          1,           0,        -1,      50,50,320,240,	    2,		         0  },
+	{ NULL,         NULL,        "nmtui",              0,            1,		    1,          1,           0,        -1,      50,50,450,650,	    2,		         0  },
+	{ NULL,         NULL,        "ScratchA",           0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'a' },
+	{ NULL,         NULL,        "ScratchS",           0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        's' },
+	{ NULL,         NULL,        "ScratchD",           0,            1,		    1,          1,           0,        -1,      360,10,1200,650,	2,		        'd' },
+	{ NULL,         NULL,        "ScratchF",           0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'f' },
+	{ NULL,         NULL,        "ScratchV",           0,            1,		    1,          1,           0,        -1,      50,50,600,500,	    2,		        'v' },
 
-	{ NULL,        NULL,        "Event Tester",       0,            0,		    0,          0,           1,        -1,      50,50,500,500,	    2,		         0  }, /* xev */
-	{ NULL,        NULL,        "Unlock Keyring",     0,            1,		    0,          0,           1,        -1,      50,50,500,500,	    2,		         0  },
+	{ NULL,         NULL,        "Event Tester",       0,            0,		    0,          0,           1,        -1,      50,50,500,500,	    2,		         0  }, /* xev */
+	{ NULL,         NULL,        "Unlock Keyring",     0,            1,		    0,          0,           1,        -1,      50,50,500,500,	    2,		         0  },
 };
 
 /* window following */
