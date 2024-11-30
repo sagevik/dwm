@@ -186,29 +186,29 @@ static Keychord *keychords[] = {
     &((Keychord){1, {{MODKEY|ShiftMask, XK_period}},                        tagmon,             {.i = +1 } }),
     &((Keychord){1, {{MODKEY|ControlMask|ShiftMask, XK_q}},                 quit,               {0} }),
 	// Application launcher keys
-    &((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_c}},                       spawn,             {.v = qalculate } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_f}},                       spawn,             {.v = fileexplorer } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_v}},                       spawn,             {.v = vmselector } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_g}},                       spawn,             {.v = gimp } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_b}},                       spawn,             {.v = browser } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {MODKEY, XK_j}},                       spawn,             {.v = joplin } }),
+    &((Keychord){2, {{MODKEY, XK_o}, {0, XK_c}},                            spawn,              {.v = qalculate } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_f}},                            spawn,              {.v = fileexplorer } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_v}},                            spawn,              {.v = vmselector } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_g}},                            spawn,              {.v = gimp } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_b}},                            spawn,              {.v = browser } }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_j}},                            spawn,              {.v = joplin } }),
 	// Audio controls
-	&((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			                spawn,             {.v = voldown } }),
-	&((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			                spawn,             {.v = volup } }),
-	&((Keychord){1, {{0, XF86XK_AudioMute}},			                    spawn,             {.v = volmute } }),
-	&((Keychord){1, {{MODKEY, XF86XK_AudioMute}},			                spawn,             {.v = volset } }),
+	&((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			                spawn,              {.v = voldown } }),
+	&((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			                spawn,              {.v = volup } }),
+	&((Keychord){1, {{0, XF86XK_AudioMute}},			                    spawn,              {.v = volmute } }),
+	&((Keychord){1, {{MODKEY, XF86XK_AudioMute}},			                spawn,              {.v = volset } }),
 	// Screen brightness
-	&((Keychord){1, {{0, XF86XK_MonBrightnessDown}},		                spawn,             {.v = brightdown } }),
-	&((Keychord){1, {{0, XF86XK_MonBrightnessUp}},			                spawn,             {.v = brightup } }),
+	&((Keychord){1, {{0, XF86XK_MonBrightnessDown}},		                spawn,              {.v = brightdown } }),
+	&((Keychord){1, {{0, XF86XK_MonBrightnessUp}},			                spawn,              {.v = brightup } }),
 	// Screenshot
-	&((Keychord){1, {{0, 0xff61}},			                                spawn,             {.v = scrshotsel } }),
-	&((Keychord){1, {{ShiftMask, 0xff61}},		                            spawn,             {.v = scrshotwin } }),
-	&((Keychord){1, {{ControlMask, 0xff61}},	                            spawn,             {.v = scrshotscr } }),
+	&((Keychord){1, {{0, 0xff61}},			                                spawn,              {.v = scrshotsel } }),
+	&((Keychord){1, {{ShiftMask, 0xff61}},		                            spawn,              {.v = scrshotwin } }),
+	&((Keychord){1, {{ControlMask, 0xff61}},	                            spawn,              {.v = scrshotscr } }),
 	// Display setup
-	&((Keychord){1, {{MODKEY|Mod1Mask, XK_p}},	                            spawn,             {.v = displaysel } }),
-	&((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_p}},	                spawn,             {.v = displayset } }),
+	&((Keychord){1, {{MODKEY|Mod1Mask, XK_p}},	                            spawn,              {.v = displaysel } }),
+	&((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_p}},	                spawn,              {.v = displayset } }),
 	// Power menu
-	&((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},	                    spawn,             {.v = powermenu } }),
+	&((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},	                    spawn,              {.v = powermenu } }),
    TAGKEYS(                        XK_1,                      0)
    TAGKEYS(                        XK_2,                      1)
    TAGKEYS(                        XK_3,                      2)
