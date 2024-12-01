@@ -18,6 +18,8 @@ patches from suckless.org website:
 - titlecolor
 - statusallmons
 - windowfollow
+- floatrules
+- keychord
 
 
 dwm - dynamic window manager
@@ -59,7 +61,7 @@ like this in your .xinitrc:
 
     while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
     do
-    	sleep 1
+        sleep 1
     done &
     exec dwm
 
