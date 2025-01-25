@@ -99,14 +99,20 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+//static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchcmdA[] = {"a", "st", "-t", "ScratchA", NULL};
-static const char *scratchcmdS[] = {"s", "st", "-t", "ScratchS", NULL};
-static const char *scratchcmdD[] = {"d", "st", "-t", "ScratchD", NULL};
-static const char *scratchcmdF[] = {"f", "st", "-t", "ScratchF", NULL};
-static const char *scratchcmdV[] = {"v", "st", "-t", "ScratchV", NULL};
+//static const char *scratchcmdA[] = {"a", "st", "-t", "ScratchA", NULL};
+static const char *scratchcmdA[] = {"a", "kitty", "--title", "ScratchA", NULL};
+//static const char *scratchcmdS[] = {"s", "st", "-t", "ScratchS", NULL};
+static const char *scratchcmdS[] = {"s", "kitty", "--title", "ScratchS", NULL};
+//static const char *scratchcmdD[] = {"d", "st", "-t", "ScratchD", NULL};
+static const char *scratchcmdD[] = {"d", "kitty", "--title", "ScratchD", NULL};
+//static const char *scratchcmdF[] = {"f", "st", "-t", "ScratchF", NULL};
+static const char *scratchcmdF[] = {"f", "kitty", "--title", "ScratchF", NULL};
+//static const char *scratchcmdV[] = {"v", "st", "-t", "ScratchV", NULL};
+static const char *scratchcmdV[] = {"v", "kitty", "--title", "ScratchV", NULL};
 
 // Application launcher commands
 static const char *qalculate[]    = {"qalculate-gtk", NULL};
