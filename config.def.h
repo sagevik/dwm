@@ -114,32 +114,6 @@ static const char *scratchcmdF[] = {"f", "kitty", "--title", "ScratchF", NULL};
 //static const char *scratchcmdV[] = {"v", "st", "-t", "ScratchV", NULL};
 static const char *scratchcmdV[] = {"v", "kitty", "--title", "ScratchV", NULL};
 
-// Application launcher commands
-static const char *qalculate[]    = {"qalculate-gtk", NULL};
-static const char *fileexplorer[] = {"nemo", NULL};
-static const char *vmselector[]   = {"vmselector", NULL};
-static const char *gimp[]         = {"gimp", NULL};
-static const char *browser[]      = {"brave", NULL};
-static const char *joplin[]       = {"joplin-desktop", NULL};
-// Media control
-static const char *voldown[]      = {"volume", "down", NULL};
-static const char *volup[]        = {"volume", "up", NULL};
-static const char *volmute[]      = {"volume", "mute", NULL};
-static const char *volset[]       = {"volume", "setvolume", NULL};
-// Brightness control
-static const char *brightdown[]   = {"brightness", "down", NULL};
-static const char *brightup[]     = {"brightness", "up", NULL};
-// Screenshot
-static const char *scrshotsel[]   = {"scrshot", "selection", NULL};
-static const char *scrshotwin[]   = {"scrshot", "window", NULL};
-static const char *scrshotscr[]   = {"scrshot", "fullscreen", NULL};
-// Display
-static const char *displaysel[]   = {"displayselect", NULL};
-static const char *displayset[]   = {"monitorsetup", NULL};
-// Power menu
-static const char *powermenu[]    = {"pow", NULL};
-
-
 #include "movestack.c"
 static Keychord *keychords[] = {
        /* Keys                                                              function            argument */
@@ -192,29 +166,30 @@ static Keychord *keychords[] = {
     &((Keychord){1, {{MODKEY|ShiftMask, XK_period}},                        tagmon,             {.i = +1 } }),
     &((Keychord){1, {{MODKEY|ControlMask|ShiftMask, XK_q}},                 quit,               {0} }),
 	// Application launcher keys
-    &((Keychord){2, {{MODKEY, XK_o}, {0, XK_c}},                            spawn,              {.v = qalculate } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_f}},                            spawn,              {.v = fileexplorer } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_v}},                            spawn,              {.v = vmselector } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_g}},                            spawn,              {.v = gimp } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_b}},                            spawn,              {.v = browser } }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_j}},                            spawn,              {.v = joplin } }),
+    &((Keychord){2, {{MODKEY, XK_o}, {0, XK_c}},                            spawn,              {.v = (const char *[]){"qalculate-gtk", NULL}} }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_f}},                            spawn,              {.v = (const char *[]){"nemo", NULL}} }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_v}},                            spawn,              {.v = (const char *[]){"vmselector", NULL}} }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_g}},                            spawn,              {.v = (const char *[]){"gimp", NULL}} }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_b}},                            spawn,              {.v = (const char *[]){"brave", NULL}} }),
+	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_j}},                            spawn,              {.v = (const char *[]){"joplin-desktop", NULL}} }),
 	// Audio controls
-	&((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			                spawn,              {.v = voldown } }),
-	&((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			                spawn,              {.v = volup } }),
-	&((Keychord){1, {{0, XF86XK_AudioMute}},			                    spawn,              {.v = volmute } }),
-	&((Keychord){1, {{MODKEY, XF86XK_AudioMute}},			                spawn,              {.v = volset } }),
+	&((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			                spawn,              {.v = (const char *[]){"volume", "down", NULL}} }),
+	&((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			                spawn,              {.v = (const char *[]){"volume", "up", NULL}} }),
+	&((Keychord){1, {{0, XF86XK_AudioMute}},			                    spawn,              {.v = (const char *[]){"volume", "mute", NULL}} }),
+	&((Keychord){1, {{MODKEY, XF86XK_AudioMute}},			                spawn,              {.v = (const char *[]){"volume", "setvolume", NULL}} }),
 	// Screen brightness
-	&((Keychord){1, {{0, XF86XK_MonBrightnessDown}},		                spawn,              {.v = brightdown } }),
-	&((Keychord){1, {{0, XF86XK_MonBrightnessUp}},			                spawn,              {.v = brightup } }),
+	&((Keychord){1, {{0, XF86XK_MonBrightnessDown}},		                spawn,              {.v = (const char *[]){"brightness", "down", NULL}} }),
+	&((Keychord){1, {{0, XF86XK_MonBrightnessUp}},			                spawn,              {.v = (const char *[]){"brightness", "up", NULL}} }),
 	// Screenshot
-	&((Keychord){1, {{0, 0xff61}},			                                spawn,              {.v = scrshotsel } }),
-	&((Keychord){1, {{ShiftMask, 0xff61}},		                            spawn,              {.v = scrshotwin } }),
-	&((Keychord){1, {{ControlMask, 0xff61}},	                            spawn,              {.v = scrshotscr } }),
+	&((Keychord){1, {{0, 0xff61}},			                                spawn,              {.v = (const char *[]){"scrshot", "selection", NULL}} }),
+	&((Keychord){1, {{MODKEY, 0xff61}},		                                spawn,              {.v = (const char *[]){"scrshot", "selectionclip", NULL}} }),
+	&((Keychord){1, {{ShiftMask, 0xff61}},		                            spawn,              {.v = (const char *[]){"scrshot", "window", NULL}} }),
+	&((Keychord){1, {{ControlMask, 0xff61}},	                            spawn,              {.v = (const char *[]){"scrshot", "fullscreen", NULL}} }),
 	// Display setup
-	&((Keychord){1, {{MODKEY|Mod1Mask, XK_p}},	                            spawn,              {.v = displaysel } }),
-	&((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_p}},	                spawn,              {.v = displayset } }),
+	&((Keychord){1, {{MODKEY|Mod1Mask, XK_p}},	                            spawn,              {.v = (const char *[]){"displayselect", NULL}} }),
+	&((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_p}},	                spawn,              {.v = (const char *[]){"monitorsetup", NULL}} }),
 	// Power menu
-	&((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},	                    spawn,              {.v = powermenu } }),
+	&((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},	                    spawn,              {.v = (const char *[]){"pow", NULL}} }),
    TAGKEYS(                        XK_1,                      0)
    TAGKEYS(                        XK_2,                      1)
    TAGKEYS(                        XK_3,                      2)
