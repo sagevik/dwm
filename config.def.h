@@ -73,16 +73,16 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },			// first entry is default
-	{ "[\\]",     dwindle },
-	{ "TTT",      bstack },
+    { "[]=",      tile },			// first entry is default
+    { "[\\]",     dwindle },
+    { "TTT",      bstack },
     { "###",      nrowgrid },
     { "[M]",      monocle },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
+    { "|M|",      centeredmaster },
+    { ">M>",      centeredfloatingmaster },
     { "===",      bstackhoriz },
     { "><>",      NULL },			// no layout function means floating behavior
-	{ NULL,       NULL },
+    { NULL,       NULL },
 };
 
 /* key definitions */
@@ -128,7 +128,7 @@ static Keychord *keychords[] = {
     &((Keychord){1, {{MODKEY|ControlMask,XK_u}},                            scratchpad_hide,    {0} }),
     &((Keychord){1, {{MODKEY|Mod1Mask,XK_u}},                               scratchpad_remove,  {0} }),
     &((Keychord){1, {{MODKEY, XK_b}},                                       togglebar,          {0} }),
-	&((Keychord){1, {{MODKEY,XK_n}},                                        togglefollow,       {0} }),
+    &((Keychord){1, {{MODKEY,XK_n}},                                        togglefollow,       {0} }),
     &((Keychord){1, {{MODKEY, XK_j}},                                       focusstack,         {.i = +1 } }),
     &((Keychord){1, {{MODKEY, XK_k}},                                       focusstack,         {.i = -1 } }),
     &((Keychord){1, {{MODKEY, XK_i}},                                       incnmaster,         {.i = +1 } }),
@@ -136,8 +136,8 @@ static Keychord *keychords[] = {
     &((Keychord){1, {{MODKEY, XK_h}},                                       setmfact,           {.f = -0.05} }),
     &((Keychord){1, {{MODKEY, XK_l}},                                       setmfact,           {.f = +0.05} }),
     &((Keychord){1, {{MODKEY|ShiftMask,XK_h}},                              setcfact,           {.f = +0.10} }),
-	&((Keychord){1, {{MODKEY|ShiftMask,XK_l}},                              setcfact,           {.f = -0.10} }),
-	&((Keychord){1, {{MODKEY|ShiftMask,XK_o}},                              setcfact,           {.f =  0.00} }),
+    &((Keychord){1, {{MODKEY|ShiftMask,XK_l}},                              setcfact,           {.f = -0.10} }),
+    &((Keychord){1, {{MODKEY|ShiftMask,XK_o}},                              setcfact,           {.f =  0.00} }),
     &((Keychord){1, {{MODKEY|ShiftMask,XK_j}},                              movestack,          {.i = +1 } }),
     &((Keychord){1, {{MODKEY|ShiftMask,XK_k}},                              movestack,          {.i = -1 } }),
     &((Keychord){1, {{MODKEY|ShiftMask, XK_Return}},                        zoom,               {0} }),
@@ -151,12 +151,12 @@ static Keychord *keychords[] = {
     &((Keychord){1, {{MODKEY|ShiftMask,XK_t}},                              setlayout,          {.v = &layouts[1]} }), // set layout 1 [\\] dwindle
     &((Keychord){1, {{MODKEY|ControlMask,XK_t}},                            setlayout,          {.v = &layouts[2]} }), // set layout 2 TTT bstack
     &((Keychord){1, {{MODKEY|ShiftMask|ControlMask,XK_t}},                  setlayout,          {.v = &layouts[3]} }), // set layout 3 ### nrowgrid
-	&((Keychord){1, {{MODKEY,XK_m}},                                        setlayout,          {.v = &layouts[4]} }), // set layout 4 [M] monocle
-	&((Keychord){1, {{MODKEY|ShiftMask,XK_m}},                              setlayout,          {.v = &layouts[5]} }), // set layout 5 |M| centeredmaster
-	&((Keychord){1, {{MODKEY|ControlMask,XK_m}},                            setlayout,          {.v = &layouts[6]} }), // set layout 6 >M> centeredfloatingmaster
-	&((Keychord){1, {{MODKEY|ShiftMask|ControlMask,XK_m}},                  setlayout,          {.v = &layouts[7]} }), // set layout 7 === bstackhoriz
+    &((Keychord){1, {{MODKEY,XK_m}},                                        setlayout,          {.v = &layouts[4]} }), // set layout 4 [M] monocle
+    &((Keychord){1, {{MODKEY|ShiftMask,XK_m}},                              setlayout,          {.v = &layouts[5]} }), // set layout 5 |M| centeredmaster
+    &((Keychord){1, {{MODKEY|ControlMask,XK_m}},                            setlayout,          {.v = &layouts[6]} }), // set layout 6 >M> centeredfloatingmaster
+    &((Keychord){1, {{MODKEY|ShiftMask|ControlMask,XK_m}},                  setlayout,          {.v = &layouts[7]} }), // set layout 7 === bstackhoriz
     &((Keychord){1, {{MODKEY,XK_f}},                                        setlayout,          {.v = &layouts[8]} }), // set layout 8 ><> floating
-	&((Keychord){1, {{MODKEY,XK_space}},                                    setlayout,          {0} }),
+    &((Keychord){1, {{MODKEY,XK_space}},                                    setlayout,          {0} }),
     &((Keychord){1, {{MODKEY|ShiftMask, XK_space}},                         togglefloating,     {0} }),
     &((Keychord){1, {{MODKEY, XK_0}},                                       view,               {.ui = ~0 } }),
     &((Keychord){1, {{MODKEY|ShiftMask, XK_0}},                             tag,                {.ui = ~0 } }),
@@ -167,29 +167,29 @@ static Keychord *keychords[] = {
     &((Keychord){1, {{MODKEY|ControlMask|ShiftMask, XK_q}},                 quit,               {0} }),
 	// Application launcher keys
     &((Keychord){2, {{MODKEY, XK_o}, {0, XK_c}},                            spawn,              {.v = (const char *[]){"qalculate-gtk", NULL}} }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_f}},                            spawn,              {.v = (const char *[]){"nemo", NULL}} }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_v}},                            spawn,              {.v = (const char *[]){"vmselector", NULL}} }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_g}},                            spawn,              {.v = (const char *[]){"gimp", NULL}} }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_b}},                            spawn,              {.v = (const char *[]){"brave", NULL}} }),
-	&((Keychord){2, {{MODKEY, XK_o}, {0, XK_j}},                            spawn,              {.v = (const char *[]){"joplin-desktop", NULL}} }),
+    &((Keychord){2, {{MODKEY, XK_o}, {0, XK_f}},                            spawn,              {.v = (const char *[]){"nemo", NULL}} }),
+    &((Keychord){2, {{MODKEY, XK_o}, {0, XK_v}},                            spawn,              {.v = (const char *[]){"vmselector", NULL}} }),
+    &((Keychord){2, {{MODKEY, XK_o}, {0, XK_g}},                            spawn,              {.v = (const char *[]){"gimp", NULL}} }),
+    &((Keychord){2, {{MODKEY, XK_o}, {0, XK_b}},                            spawn,              {.v = (const char *[]){"brave", NULL}} }),
+    &((Keychord){2, {{MODKEY, XK_o}, {0, XK_j}},                            spawn,              {.v = (const char *[]){"joplin-desktop", NULL}} }),
 	// Audio controls
-	&((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			                spawn,              {.v = (const char *[]){"volume", "down", NULL}} }),
-	&((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			                spawn,              {.v = (const char *[]){"volume", "up", NULL}} }),
-	&((Keychord){1, {{0, XF86XK_AudioMute}},			                    spawn,              {.v = (const char *[]){"volume", "mute", NULL}} }),
-	&((Keychord){1, {{MODKEY, XF86XK_AudioMute}},			                spawn,              {.v = (const char *[]){"volume", "setvolume", NULL}} }),
+    &((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			    spawn,              {.v = (const char *[]){"volume", "down", NULL}} }),
+    &((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			    spawn,              {.v = (const char *[]){"volume", "up", NULL}} }),
+    &((Keychord){1, {{0, XF86XK_AudioMute}},			            spawn,              {.v = (const char *[]){"volume", "mute", NULL}} }),
+    &((Keychord){1, {{MODKEY, XF86XK_AudioMute}},			    spawn,              {.v = (const char *[]){"volume", "setvolume", NULL}} }),
 	// Screen brightness
-	&((Keychord){1, {{0, XF86XK_MonBrightnessDown}},		                spawn,              {.v = (const char *[]){"brightness", "down", NULL}} }),
-	&((Keychord){1, {{0, XF86XK_MonBrightnessUp}},			                spawn,              {.v = (const char *[]){"brightness", "up", NULL}} }),
+    &((Keychord){1, {{0, XF86XK_MonBrightnessDown}},		            spawn,              {.v = (const char *[]){"brightness", "down", NULL}} }),
+    &((Keychord){1, {{0, XF86XK_MonBrightnessUp}},			    spawn,              {.v = (const char *[]){"brightness", "up", NULL}} }),
 	// Screenshot
-	&((Keychord){1, {{0, 0xff61}},			                                spawn,              {.v = (const char *[]){"scrshot", "selection", NULL}} }),
-	&((Keychord){1, {{MODKEY, 0xff61}},		                                spawn,              {.v = (const char *[]){"scrshot", "selectionclip", NULL}} }),
-	&((Keychord){1, {{ShiftMask, 0xff61}},		                            spawn,              {.v = (const char *[]){"scrshot", "window", NULL}} }),
-	&((Keychord){1, {{ControlMask, 0xff61}},	                            spawn,              {.v = (const char *[]){"scrshot", "fullscreen", NULL}} }),
+    &((Keychord){1, {{0, 0xff61}},			                    spawn,              {.v = (const char *[]){"scrshot", "selection", NULL}} }),
+    &((Keychord){1, {{MODKEY, 0xff61}},		                            spawn,              {.v = (const char *[]){"scrshot", "selectionclip", NULL}} }),
+    &((Keychord){1, {{ShiftMask, 0xff61}},		                    spawn,              {.v = (const char *[]){"scrshot", "window", NULL}} }),
+    &((Keychord){1, {{ControlMask, 0xff61}},	                            spawn,              {.v = (const char *[]){"scrshot", "fullscreen", NULL}} }),
 	// Display setup
-	&((Keychord){1, {{MODKEY|Mod1Mask, XK_p}},	                            spawn,              {.v = (const char *[]){"displayselect", NULL}} }),
-	&((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_p}},	                spawn,              {.v = (const char *[]){"monitorsetup", NULL}} }),
+    &((Keychord){1, {{MODKEY|Mod1Mask, XK_p}},	                            spawn,              {.v = (const char *[]){"displayselect", NULL}} }),
+    &((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_p}},	            spawn,              {.v = (const char *[]){"monitorsetup", NULL}} }),
 	// Power menu
-	&((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},	                    spawn,              {.v = (const char *[]){"pow", NULL}} }),
+    &((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},			    spawn,              {.v = (const char *[]){"pow", NULL}} }),
    TAGKEYS(                        XK_1,                      0)
    TAGKEYS(                        XK_2,                      1)
    TAGKEYS(                        XK_3,                      2)
