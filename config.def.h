@@ -180,6 +180,7 @@ static Keychord *keychords[] = {
 	// Screen brightness
     &((Keychord){1, {{0, XF86XK_MonBrightnessDown}},		            spawn,              {.v = (const char *[]){"brightness", "down", NULL}} }),
     &((Keychord){1, {{0, XF86XK_MonBrightnessUp}},			    spawn,              {.v = (const char *[]){"brightness", "up", NULL}} }),
+    &((Keychord){1, {{MODKEY, XF86XK_MonBrightnessDown}},		    spawn,              {.v = (const char *[]){"brightness", "setbrightness", NULL}} }),
 	// Screenshot
     &((Keychord){1, {{0, 0xff61}},			                    spawn,              {.v = (const char *[]){"scrshot", "selection", NULL}} }),
     &((Keychord){1, {{MODKEY, 0xff61}},		                            spawn,              {.v = (const char *[]){"scrshot", "selectionclip", NULL}} }),
