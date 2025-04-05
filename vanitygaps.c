@@ -319,7 +319,7 @@ centeredfloatingmaster(Monitor *m)
 		/* go mfact box in the center if more than nmaster clients */
 		if (m->ww > m->wh) {
 			mw = m->ww * m->mfact - iv*mivf*(MIN(n, m->nmaster) - 1);
-			mh = m->wh * 0.9;
+			mh = m->wh * 0.95;
 		} else {
 			mw = m->ww * 0.9 - iv*mivf*(MIN(n, m->nmaster) - 1);
 			mh = m->wh * m->mfact;
