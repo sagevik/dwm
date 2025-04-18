@@ -14,22 +14,20 @@ static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows sel
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;        /* 0 means no systray */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack:size=12" };
-static const char dmenufont[]       = "Hack:size=12";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const char col_red[]         = "#dd2f3a";
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_red  },
-	[SchemeTitle]  = { col_gray4, col_cyan,  col_cyan  },
+static const int showsystray         = 1;        /* 0 means no systray */
+static const int showbar             = 1;        /* 0 means no bar */
+static const int topbar              = 1;        /* 0 means bottom bar */
+static const char *fonts[]           = { "Hack:size=12" };
+static const char dmenufont[]        = "Hack:size=12";
+static const char col_dragonBlack2[] = "#1d1c19";
+static const char col_dragonBlack4[] = "#282727";
+static const char col_dragonWhite[]  = "#c5c9c5";
+static const char col_dragonYellow[] = "#c4b28a";
+static const char *colors[][3]       = {
+	/*                 fg                bg                border   */
+	[SchemeNorm]   = { col_dragonWhite,  col_dragonBlack2, col_dragonBlack4 },
+	[SchemeSel]    = { col_dragonBlack2, col_dragonYellow, col_dragonYellow },
+	[SchemeTitle]  = { col_dragonWhite,  col_dragonBlack2, col_dragonBlack2 },
 };
 
 /* tagging */
@@ -100,7 +98,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_dragonBlack2, "-nf", col_dragonWhite, "-sb", col_dragonYellow, "-sf", col_dragonBlack2, NULL };
 //static const char *termcmd[]  = { "st", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
