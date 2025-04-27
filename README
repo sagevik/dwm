@@ -20,6 +20,7 @@ patches from suckless.org website:
 - windowfollow
 - floatrules
 - keychord
+- xrdb
 
 
 dwm - dynamic window manager
