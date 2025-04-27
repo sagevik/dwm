@@ -28,8 +28,8 @@ static const char col_red[]         = "#dd2f3a";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_red  },
-	[SchemeTitle]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray3, col_cyan,  col_red  },
+	[SchemeTitle]  = { col_gray3, col_gray1,  col_cyan  },
 };
 
 /* tagging */
