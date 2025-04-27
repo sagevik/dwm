@@ -20,6 +20,7 @@ static const int topbar              = 1;        /* 0 means bottom bar */
 static const char *fonts[]           = { "Hack:size=12" };
 static const char dmenufont[]        = "Hack:size=12";
 static char normbgcolor[]           = "#222222";
+static char normbgcolor2[]           = "#b98d7b";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
@@ -28,7 +29,8 @@ static char selbgcolor[]            = "#005577";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+       [SchemeSel]  = { normbgcolor2,  selbgcolor,  selbordercolor  },
+       [SchemeTitle]  = { selfgcolor,  normbgcolor, normbordercolor  },
 };
 
 /* tagging */
@@ -99,7 +101,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", normbgcolor, NULL };
 //static const char *termcmd[]  = { "st", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
