@@ -193,6 +193,10 @@ static Keychord *keychords[] = {
 	// Display setup
     &((Keychord){1, {{MODKEY|Mod1Mask, XK_p}},	                            spawn,              {.v = (const char *[]){"displayselect", NULL}} }),
     &((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_p}},	            spawn,              {.v = (const char *[]){"monitorsetup", NULL}} }),
+        // Snippets
+    &((Keychord){1, {{MODKEY, XK_Insert}},			            spawn,              {.v = (const char *[]){"snippet", "get", NULL}} }),
+    &((Keychord){1, {{MODKEY|ShiftMask, XK_Insert}},		            spawn,              {.v = (const char *[]){"snippet", "set", NULL}} }),
+    &((Keychord){1, {{MODKEY|Mod1Mask, XK_Insert}},		            spawn,              {.v = (const char *[]){"snippet", NULL}} }),
 	// Power menu
     &((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},			    spawn,              {.v = (const char *[]){"pow", NULL}} }),
    TAGKEYS(                        XK_1,                      0)
