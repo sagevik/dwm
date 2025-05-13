@@ -48,6 +48,7 @@ static const Rule rules[] = {
 	{ "Qalculate",  NULL,        NULL,                 0,            1,		    1,          0,           0,        -1,      50,50,720,500,	    2,		         0  },
 	{ "Dragon",     NULL,        NULL,	           0,            1,		    1,          0,           1,        -1,      50,50,900,800,	    2,		         0  },
         { "Bitwarden",  NULL,        NULL,	           0,            1,		    1,          0,           0,        -1,      50,50,900,800,	    2,			 0  },
+        { "Nsxiv",	"wpicker",   NULL,	           0,            1,		    1,          0,           0,        -1,      360,10,1200,1000,   2,		         0  },
 	{ NULL,         NULL,        "webcam",             0,            1,		    1,          1,           0,        -1,      50,50,640,480,	    2,		         0  },
 	{ NULL,         NULL,        "nmtui",              0,            1,		    1,          1,           0,        -1,      50,50,450,650,	    2,		         0  },
 	{ NULL,         NULL,        "ScratchA",           0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'a' },
