@@ -35,7 +35,7 @@ static char *colors[][3] = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-
+char ghostty[] = "com.mitchellh.ghostty";
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -51,12 +51,17 @@ static const Rule rules[] = {
         { "Nsxiv",	"wpicker",   NULL,	           0,            1,		    1,          0,           0,        -1,      360,10,1200,1000,   2,		         0  },
 	{ NULL,         NULL,        "webcam",             0,            1,		    1,          1,           0,        -1,      50,50,640,480,	    2,		         0  },
 	{ NULL,         NULL,        "nmtui",              0,            1,		    1,          1,           0,        -1,      50,50,450,650,	    2,		         0  },
+	// { ghostty,      "ScratchA",  NULL,                 0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'a' },
+	// { ghostty,      "ScratchS",  NULL,                 0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        's' },
+	// { ghostty,      "ScratchD",  NULL,                 0,            1,		    1,          1,           0,        -1,      360,10,1200,650,    2,		        'd' },
+	// { ghostty,      "ScratchF",  NULL,                 0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'f' },
+	// { ghostty,      "ScratchV",  NULL,                 0,            1,		    1,          1,           0,        -1,      50,50,600,500,	    2,		        'v' },
 	{ NULL,         NULL,        "ScratchA",           0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'a' },
 	{ NULL,         NULL,        "ScratchS",           0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        's' },
 	{ NULL,         NULL,        "ScratchD",           0,            1,		    1,          1,           0,        -1,      360,10,1200,650,    2,		        'd' },
 	{ NULL,         NULL,        "ScratchF",           0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'f' },
-	{ NULL,         NULL,        "ScratchF",           0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'f' },
 	{ NULL,         NULL,        "ScratchV",           0,            1,		    1,          1,           0,        -1,      50,50,600,500,	    2,		        'v' },
+
 
 	{ NULL,         NULL,        "Event Tester",       0,            0,		    0,          0,           1,        -1,      50,50,500,500,	    2,		         0  }, /* xev */
 	{ NULL,         NULL,        "Unlock Keyring",     0,            1,		    0,          0,           1,        -1,      50,50,500,500,	    2,		         0  },
@@ -104,19 +109,19 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", normbgcolor, NULL };
-//static const char *termcmd[]  = { "st", NULL };
+// static const char *termcmd[]  = { "ghostty", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
 /*First arg only serves to match against key in rules*/
-//static const char *scratchcmdA[] = {"a", "st", "-t", "ScratchA", NULL};
+// static const char *scratchcmdA[] = {"a", "ghostty", "--x11-instance-name=ScratchA", NULL};
 static const char *scratchcmdA[] = {"a", "kitty", "--title", "ScratchA", NULL};
-//static const char *scratchcmdS[] = {"s", "st", "-t", "ScratchS", NULL};
+// static const char *scratchcmdS[] = {"s", "ghostty", "--x11-instance-name=ScratchS", NULL};
 static const char *scratchcmdS[] = {"s", "kitty", "--title", "ScratchS", NULL};
-//static const char *scratchcmdD[] = {"d", "st", "-t", "ScratchD", NULL};
+// static const char *scratchcmdD[] = {"d", "ghostty", "--x11-instance-name=ScratchD", NULL};
 static const char *scratchcmdD[] = {"d", "kitty", "--title", "ScratchD", NULL};
-//static const char *scratchcmdF[] = {"f", "st", "-t", "ScratchF", NULL};
+// static const char *scratchcmdF[] = {"f", "ghostty", "--x11-instance-name=ScratchF", NULL};
 static const char *scratchcmdF[] = {"f", "kitty", "--title", "ScratchF", NULL};
-//static const char *scratchcmdV[] = {"v", "st", "-t", "ScratchV", NULL};
+// static const char *scratchcmdV[] = {"v", "ghostty", "--x11-instance-name=ScratchV", NULL};
 static const char *scratchcmdV[] = {"v", "kitty", "--title", "ScratchV", NULL};
 
 #include "movestack.c"
