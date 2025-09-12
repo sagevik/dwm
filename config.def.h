@@ -213,6 +213,8 @@ static Keychord *keychords[] = {
     &((Keychord){1, {{MODKEY|Mod1Mask, XK_Insert}},		            spawn,              {.v = (const char *[]){"snippet", NULL}} }),
 	// Power menu
     &((Keychord){1, {{MODKEY, XK_Escape}},				    spawn,              {.v = (const char *[]){"pow", NULL}} }),
+	// Center window
+    &((Keychord){1, {{MODKEY, XK_c}},                                       spawn,	        {.v = (const char *[]){"center_window.sh", NULL}} }), 
     // &((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},			    spawn,              {.v = (const char *[]){"pow", NULL}} }),
    TAGKEYS(                        XK_1,                      0)
    TAGKEYS(                        XK_2,                      1)
