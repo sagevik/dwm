@@ -17,8 +17,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray         = 1;        /* 0 means no systray */
 static const int showbar             = 1;        /* 0 means no bar */
 static const int topbar              = 1;        /* 0 means bottom bar */
-static const char *fonts[]           = { "Hack:size=12" };
-static const char dmenufont[]        = "Hack:size=12";
+static const char *fonts[]           = { "Hack:size=10:style=bold" };
+static const char dmenufont[]        = "Hack:size=10:style=bold";
 static char normbgcolor[]           = "#222222";
 static char normbgcolor2[]           = "#b98d7b";
 static char normbordercolor[]       = "#444444";
@@ -215,6 +215,7 @@ static Keychord *keychords[] = {
     &((Keychord){1, {{MODKEY, XK_Escape}},				    spawn,              {.v = (const char *[]){"pow", NULL}} }),
 	// Center window
     &((Keychord){1, {{MODKEY, XK_c}},                                       spawn,	        {.v = (const char *[]){"center_window.sh", NULL}} }), 
+    &((Keychord){1, {{MODKEY|ControlMask, XK_c}},                           spawn,	        {.v = (const char *[]){"center_window.sh", "center", NULL}} }), 
     // &((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},			    spawn,              {.v = (const char *[]){"pow", NULL}} }),
    TAGKEYS(                        XK_1,                      0)
    TAGKEYS(                        XK_2,                      1)
