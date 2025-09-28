@@ -52,9 +52,9 @@ static const Rule rules[] = {
 	{ "Firefox",    NULL,        NULL,                 1 << 1,       0,		    0,          0,          -1,        -1,      50,50,500,500,	    2,		         0  },
 	{ "st",         NULL,        NULL,                 0,            1,		    0,          1,           0,        -1,      50,50,500,500,	    2,		         0  },
 	{ "Qalculate",  NULL,        NULL,                 0,            1,		    1,          0,           0,        -1,      50,50,720,500,	    2,		         0  },
-	{ "Dragon",     NULL,        NULL,	           0,            1,		    1,          0,           1,        -1,      50,50,900,800,	    2,		         0  },
-        { "Bitwarden",  NULL,        NULL,	           0,            1,		    1,          0,           0,        -1,      50,50,900,800,	    2,			 0  },
-        { "Nsxiv",	"wpicker",   NULL,	           0,            1,		    1,          0,           0,        -1,      360,10,1200,1000,   2,		         0  },
+	{ "Dragon",     NULL,        NULL,	               0,            1,		    1,          0,           1,        -1,      50,50,900,800,	    2,		         0  },
+  { "Bitwarden",  NULL,        NULL,	               0,            1,		    1,          0,           0,        -1,      50,50,900,800,	    2,			       0  },
+  { "Nsxiv",	    "wpicker",   NULL,	               0,            1,		    1,          0,           0,        -1,      360,10,1200,1000,   2,		         0  },
 	{ NULL,         NULL,        "webcam",             0,            1,		    1,          1,           0,        -1,      50,50,640,480,	    2,		         0  },
 	{ NULL,         NULL,        "nmtui",              0,            1,		    1,          1,           0,        -1,      50,50,450,650,	    2,		         0  },
 	{ ghostty,      "ScratchA",  NULL,                 0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'a' },
@@ -191,31 +191,31 @@ static Keychord *keychords[] = {
 	// Search
     &((Keychord){2, {{MODKEY, XK_o}, {0, XK_w}},                            spawn,              {.v = (const char *[]){"websearch", NULL}} }),
 	// Audio controls
-    &((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			    spawn,              {.v = (const char *[]){"volume", "down", NULL}} }),
-    &((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			    spawn,              {.v = (const char *[]){"volume", "up", NULL}} }),
-    &((Keychord){1, {{0, XF86XK_AudioMute}},			            spawn,              {.v = (const char *[]){"volume", "mute", NULL}} }),
-    &((Keychord){1, {{MODKEY, XF86XK_AudioMute}},			    spawn,              {.v = (const char *[]){"volume", "setvolume", NULL}} }),
+    &((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			                    spawn,              {.v = (const char *[]){"volume", "down", NULL}} }),
+    &((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			                    spawn,              {.v = (const char *[]){"volume", "up", NULL}} }),
+    &((Keychord){1, {{0, XF86XK_AudioMute}},			                          spawn,              {.v = (const char *[]){"volume", "mute", NULL}} }),
+    &((Keychord){1, {{MODKEY, XF86XK_AudioMute}},			                      spawn,              {.v = (const char *[]){"volume", "setvolume", NULL}} }),
 	// Screen brightness
-    &((Keychord){1, {{0, XF86XK_MonBrightnessDown}},		            spawn,              {.v = (const char *[]){"brightness", "down", NULL}} }),
-    &((Keychord){1, {{0, XF86XK_MonBrightnessUp}},			    spawn,              {.v = (const char *[]){"brightness", "up", NULL}} }),
-    &((Keychord){1, {{MODKEY, XF86XK_MonBrightnessDown}},		    spawn,              {.v = (const char *[]){"brightness", "setbrightness", NULL}} }),
+    &((Keychord){1, {{0, XF86XK_MonBrightnessDown}},		                    spawn,              {.v = (const char *[]){"brightness", "down", NULL}} }),
+    &((Keychord){1, {{0, XF86XK_MonBrightnessUp}},			                    spawn,              {.v = (const char *[]){"brightness", "up", NULL}} }),
+    &((Keychord){1, {{MODKEY, XF86XK_MonBrightnessDown}},		                spawn,              {.v = (const char *[]){"brightness", "setbrightness", NULL}} }),
 	// Screenshot
-    &((Keychord){1, {{0, 0xff61}},			                    spawn,              {.v = (const char *[]){"scrshot", "selection", NULL}} }),
-    &((Keychord){1, {{MODKEY, 0xff61}},		                            spawn,              {.v = (const char *[]){"scrshot", "selectionclip", NULL}} }),
-    &((Keychord){1, {{ShiftMask, 0xff61}},		                    spawn,              {.v = (const char *[]){"scrshot", "window", NULL}} }),
-    &((Keychord){1, {{ControlMask, 0xff61}},	                            spawn,              {.v = (const char *[]){"scrshot", "fullscreen", NULL}} }),
+    &((Keychord){1, {{0, 0xff61}},			                                    spawn,              {.v = (const char *[]){"scrshot", "selection", NULL}} }),
+    &((Keychord){1, {{MODKEY, 0xff61}},		                                  spawn,              {.v = (const char *[]){"scrshot", "selectionclip", NULL}} }),
+    &((Keychord){1, {{ShiftMask, 0xff61}},		                              spawn,              {.v = (const char *[]){"scrshot", "window", NULL}} }),
+    &((Keychord){1, {{ControlMask, 0xff61}},	                              spawn,              {.v = (const char *[]){"scrshot", "fullscreen", NULL}} }),
 	// Display setup
     &((Keychord){1, {{MODKEY|Mod1Mask, XK_p}},	                            spawn,              {.v = (const char *[]){"displayselect", NULL}} }),
-    &((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_p}},	            spawn,              {.v = (const char *[]){"monitorsetup", NULL}} }),
+    &((Keychord){1, {{MODKEY|Mod1Mask|ControlMask, XK_p}},	                spawn,              {.v = (const char *[]){"monitorsetup", NULL}} }),
         // Snippets
-    &((Keychord){1, {{MODKEY, XK_Insert}},			            spawn,              {.v = (const char *[]){"snippet", "get", NULL}} }),
-    &((Keychord){1, {{MODKEY|ShiftMask, XK_Insert}},		            spawn,              {.v = (const char *[]){"snippet", "set", NULL}} }),
-    &((Keychord){1, {{MODKEY|Mod1Mask, XK_Insert}},		            spawn,              {.v = (const char *[]){"snippet", NULL}} }),
+    &((Keychord){1, {{MODKEY, XK_Insert}},			                            spawn,              {.v = (const char *[]){"snippet", "get", NULL}} }),
+    &((Keychord){1, {{MODKEY|ShiftMask, XK_Insert}},		                    spawn,              {.v = (const char *[]){"snippet", "set", NULL}} }),
+    &((Keychord){1, {{MODKEY|Mod1Mask, XK_Insert}},		                      spawn,              {.v = (const char *[]){"snippet", NULL}} }),
 	// Power menu
-    &((Keychord){1, {{MODKEY, XK_Escape}},				    spawn,              {.v = (const char *[]){"pow", NULL}} }),
+    &((Keychord){1, {{MODKEY, XK_Escape}},				                          spawn,              {.v = (const char *[]){"pow", NULL}} }),
 	// Center window
     &((Keychord){1, {{MODKEY, XK_c}},                                       spawn,	        {.v = (const char *[]){"center_window.sh", NULL}} }), 
-    // &((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},			    spawn,              {.v = (const char *[]){"pow", NULL}} }),
+    // &((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},			              spawn,              {.v = (const char *[]){"pow", NULL}} }),
    TAGKEYS(                        XK_1,                      0)
    TAGKEYS(                        XK_2,                      1)
    TAGKEYS(                        XK_3,                      2)
