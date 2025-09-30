@@ -134,6 +134,7 @@ static Keychord *keychords[] = {
        /* Keys                                                              function            argument */
     &((Keychord){1, {{MODKEY, XK_F5}},                                      xrdb,               {.v = NULL } }),
     &((Keychord){1, {{MODKEY, XK_p}},                                       spawn,              {.v = dmenucmd } }),
+    &((Keychord){1, {{MODKEY|ShiftMask, XK_p}},                             spawn,              {.v = (const char *[]){"windows.sh", NULL}} }),
     &((Keychord){1, {{MODKEY, XK_Return}},                                  spawn,              {.v = termcmd } }),
     &((Keychord){1, {{MODKEY|ShiftMask,XK_a}},                              togglescratch,      {.v = scratchcmdA } }),
     &((Keychord){1, {{MODKEY|ShiftMask,XK_s}},                              togglescratch,      {.v = scratchcmdS } }),
