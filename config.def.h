@@ -193,6 +193,8 @@ static Keychord *keychords[] = {
     &((Keychord){2, {{MODKEY, XK_o}, {0, XK_w}},                            spawn,              {.v = (const char *[]){"websearch", NULL}} }),
   // Monitorsetup
     &((Keychord){2, {{MODKEY, XK_o}, {0, XK_s}},                            spawn,              {.v = (const char *[]){"monitorsetup", NULL}} }),
+  // Powerprofile
+    &((Keychord){2, {{MODKEY, XK_o}, {0, XK_p}},                            spawn,              {.v = (const char *[]){"powerprofile.sh", NULL}} }),
 	// Audio controls
     &((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			                    spawn,              {.v = (const char *[]){"volume", "down", NULL}} }),
     &((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			                    spawn,              {.v = (const char *[]){"volume", "up", NULL}} }),
