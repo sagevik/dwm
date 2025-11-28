@@ -165,8 +165,8 @@ static Keychord *keychords[] = {
     &((Keychord){1, {{MODKEY, XK_Tab}},                                     view,               {0} }),
     &((Keychord){1, {{MODKEY, XK_q}},                                       killclient,         {0} }),
     &((Keychord){1, {{MODKEY,XK_t}},                                        setlayout,          {.v = &layouts[0]} }), // set layout 0 []= tile
-    &((Keychord){1, {{MODKEY|ShiftMask,XK_t}},                              setlayout,          {.v = &layouts[1]} }), // set layout 1 [\\] dwindle
-    &((Keychord){1, {{MODKEY|ControlMask,XK_t}},                            setlayout,          {.v = &layouts[2]} }), // set layout 2 TTT bstack
+    &((Keychord){1, {{MODKEY|ControlMask,XK_t}},                            setlayout,          {.v = &layouts[1]} }), // set layout 1 [\\] dwindle
+    &((Keychord){1, {{MODKEY|ShiftMask,XK_t}},                              setlayout,          {.v = &layouts[2]} }), // set layout 2 TTT bstack
     &((Keychord){1, {{MODKEY|ShiftMask|ControlMask,XK_t}},                  setlayout,          {.v = &layouts[3]} }), // set layout 3 ### nrowgrid
     &((Keychord){1, {{MODKEY,XK_m}},                                        setlayout,          {.v = &layouts[4]} }), // set layout 4 [M] monocle
     &((Keychord){1, {{MODKEY|ShiftMask,XK_m}},                              setlayout,          {.v = &layouts[5]} }), // set layout 5 |M| centeredmaster
