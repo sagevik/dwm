@@ -17,8 +17,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray         = 1;        /* 0 means no systray */
 static const int showbar             = 1;        /* 0 means no bar */
 static const int topbar              = 1;        /* 0 means bottom bar */
-static const char *fonts[]           = { "Hack:size=10:style=bold" };
-static const char dmenufont[]        = "Hack:size=10:style=bold";
+static const char *fonts[]           = { "Hack:size=10:style=Bold" };
+static const char dmenufont[]        = "Hack:size=10:style=Bold";
 static char normbgcolor[]           = "#222222";
 static char normbgcolor2[]           = "#b98d7b";
 static char normbordercolor[]       = "#444444";
@@ -52,9 +52,9 @@ static const Rule rules[] = {
 	{ "Firefox",    NULL,        NULL,                 1 << 1,       0,		    0,          0,          -1,        -1,      50,50,500,500,	    2,		         0  },
 	{ "st",         NULL,        NULL,                 0,            1,		    0,          1,           0,        -1,      50,50,500,500,	    2,		         0  },
 	{ "Qalculate",  NULL,        NULL,                 0,            1,		    1,          0,           0,        -1,      50,50,720,500,	    2,		         0  },
-	{ "Dragon",     NULL,        NULL,	           0,            1,		    1,          0,           1,        -1,      50,50,900,800,	    2,		         0  },
-        { "Bitwarden",  NULL,        NULL,	           0,            1,		    1,          0,           0,        -1,      50,50,900,800,	    2,			 0  },
-        { "Nsxiv",	"wpicker",   NULL,	           0,            1,		    1,          0,           0,        -1,      360,10,1200,1000,   2,		         0  },
+	{ "Dragon",     NULL,        NULL,	               0,            1,		    1,          0,           1,        -1,      50,50,900,800,	    2,		         0  },
+  { "Bitwarden",  NULL,        NULL,	               0,            1,		    1,          0,           0,        -1,      50,50,900,800,	    2,			       0  },
+  { "Nsxiv",	    "wpicker",   NULL,	               0,            1,		    1,          0,           0,        -1,      360,10,1200,1000,   2,		         0  },
 	{ NULL,         NULL,        "webcam",             0,            1,		    1,          1,           0,        -1,      50,50,640,480,	    2,		         0  },
 	{ NULL,         NULL,        "nmtui",              0,            1,		    1,          1,           0,        -1,      50,50,450,650,	    2,		         0  },
 	{ ghostty,      "ScratchA",  NULL,                 0,            1,		    1,          1,           0,        -1,      50,50,900,800,	    2,		        'a' },
@@ -113,7 +113,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", normbgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-i", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", normbgcolor, NULL };
 static const char *termcmd[]  = { "ghostty", NULL };
 // static const char *termcmd[]  = { "kitty", NULL };
 
@@ -192,6 +192,10 @@ static Keychord *keychords[] = {
     &((Keychord){2, {{MODKEY, XK_o}, {0, XK_a}},                            spawn,              {.v = (const char *[]){"pavucontrol", NULL}} }),
 	// Search
     &((Keychord){2, {{MODKEY, XK_o}, {0, XK_w}},                            spawn,              {.v = (const char *[]){"websearch", NULL}} }),
+  // Monitorsetup
+    &((Keychord){2, {{MODKEY, XK_o}, {0, XK_s}},                            spawn,              {.v = (const char *[]){"monitorsetup", NULL}} }),
+  // Powerprofile
+    &((Keychord){2, {{MODKEY, XK_o}, {0, XK_p}},                            spawn,              {.v = (const char *[]){"powerprofile.sh", NULL}} }),
 	// Audio controls
     &((Keychord){1, {{0, XF86XK_AudioLowerVolume}},			                    spawn,              {.v = (const char *[]){"volume", "down", NULL}} }),
     &((Keychord){1, {{0, XF86XK_AudioRaiseVolume}},			                    spawn,              {.v = (const char *[]){"volume", "up", NULL}} }),
@@ -216,9 +220,9 @@ static Keychord *keychords[] = {
 	// Power menu
     &((Keychord){1, {{MODKEY, XK_Escape}},				                          spawn,              {.v = (const char *[]){"pow", NULL}} }),
 	// Center window
-    &((Keychord){1, {{MODKEY, XK_c}},                                       spawn,	        {.v = (const char *[]){"center_window.sh", NULL}} }), 
-    &((Keychord){1, {{MODKEY|ControlMask, XK_c}},                           spawn,	        {.v = (const char *[]){"center_window.sh", "center", NULL}} }), 
-    // &((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},			    spawn,              {.v = (const char *[]){"pow", NULL}} }),
+    &((Keychord){1, {{MODKEY, XK_c}},                                       spawn,	            {.v = (const char *[]){"center_window.sh", NULL}} }),
+    &((Keychord){1, {{MODKEY|ShiftMask, XK_c}},                             spawn,	            {.v = (const char *[]){"center_window.sh", "center", NULL}} }),
+    // &((Keychord){1, {{MODKEY|Mod1Mask, XK_BackSpace}},			              spawn,              {.v = (const char *[]){"pow", NULL}} }),
    TAGKEYS(                        XK_1,                      0)
    TAGKEYS(                        XK_2,                      1)
    TAGKEYS(                        XK_3,                      2)
